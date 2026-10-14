@@ -1,0 +1,414 @@
+{
+  "tested_at": "2026-10-14T11:27:10.525049-03:00",
+  "region": "us-chicago-1",
+  "endpoint": "/v1/responses",
+  "method": "POST /api/chat via FastAPI TestClient; inferência OCI real; um processo isolado por modelo",
+  "max_output_tokens": 2400,
+  "concurrency": 2,
+  "retries": 0,
+  "confirmation_criteria": "HTTP 200, search completed, fontes não vazias e citações estruturadas",
+  "results": [
+    {
+      "requested_model": "xai.grok-4.20-0309-non-reasoning",
+      "returned_model": "xai.grok-4.20-0309-non-reasoning",
+      "tested_at": "2026-10-14T11:26:10.793751-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 3.62,
+      "websearch_confirmed": true,
+      "completed_searches": 2,
+      "source_count": 15,
+      "citation_count": 1,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        },
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 10036,
+        "input_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "output_tokens": 196,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10232,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 219598000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 9058,
+          "output_tokens": 138
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.20-0309-non-reasoning",
+      "citation_urls": [
+        "https://ndmais.com.br/tempo/tempestades-1-342-municipios-alerta-laranja-quarta-feira-14/"
+      ]
+    },
+    {
+      "requested_model": "xai.grok-4.20-0309-reasoning",
+      "returned_model": "xai.grok-4.20-0309-reasoning",
+      "tested_at": "2026-10-14T11:26:10.782598-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 14.8,
+      "websearch_confirmed": true,
+      "completed_searches": 1,
+      "source_count": 10,
+      "citation_count": 2,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 7712,
+        "input_tokens_details": {
+          "cached_tokens": 256
+        },
+        "output_tokens": 1491,
+        "output_tokens_details": {
+          "reasoning_tokens": 1375
+        },
+        "total_tokens": 9203,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 1,
+        "cost_in_usd_ticks": 180987000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 1,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 6732,
+          "output_tokens": 864
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.20-0309-reasoning",
+      "citation_urls": [
+        "https://correiodobrasil.com.br/c/ultimas-noticias/"
+      ]
+    },
+    {
+      "requested_model": "xai.grok-4.20-non-reasoning",
+      "returned_model": "xai.grok-4.20-non-reasoning",
+      "tested_at": "2026-10-14T11:26:14.931513-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 3.22,
+      "websearch_confirmed": true,
+      "completed_searches": 2,
+      "source_count": 15,
+      "citation_count": 1,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        },
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 10944,
+        "input_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "output_tokens": 224,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11168,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 231648000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 9966,
+          "output_tokens": 153
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.20-non-reasoning",
+      "citation_urls": [
+        "https://ndmais.com.br/tempo/tempestades-1-342-municipios-alerta-laranja-quarta-feira-14/"
+      ]
+    },
+    {
+      "requested_model": "xai.grok-4.20-reasoning",
+      "returned_model": "xai.grok-4.20-reasoning",
+      "tested_at": "2026-10-14T11:26:18.687154-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 17.09,
+      "websearch_confirmed": true,
+      "completed_searches": 2,
+      "source_count": 10,
+      "citation_count": 1,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        },
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 7882,
+        "input_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "output_tokens": 1531,
+        "output_tokens_details": {
+          "reasoning_tokens": 1329
+        },
+        "total_tokens": 9413,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 226048000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 6902,
+          "output_tokens": 732
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.20-reasoning",
+      "citation_urls": [
+        "https://paraibaonline.com.br/brasil/2026/10/14/o-que-tem-nas-capas-dos-jornais-do-brasil-nesta-quarta-feira-14-10/"
+      ]
+    },
+    {
+      "requested_model": "xai.grok-4.3",
+      "returned_model": "xai.grok-4.3",
+      "tested_at": "2026-10-14T11:26:26.105038-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 9.24,
+      "websearch_confirmed": true,
+      "completed_searches": 2,
+      "source_count": 10,
+      "citation_count": 1,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        },
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 8092,
+        "input_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "output_tokens": 898,
+        "output_tokens_details": {
+          "reasoning_tokens": 734
+        },
+        "total_tokens": 8990,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 210160000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 6926,
+          "output_tokens": 456
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.3",
+      "citation_urls": [
+        "https://www.cnnbrasil.com.br/nacional/brasil/temporais-e-chuva-forte-veja-como-fica-o-tempo-no-brasil-nesta-quarta-14/"
+      ]
+    },
+    {
+      "requested_model": "xai.grok-4.6",
+      "returned_model": "xai.grok-4.6",
+      "tested_at": "2026-10-14T11:26:35.843431-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 35.17,
+      "websearch_confirmed": true,
+      "completed_searches": 1,
+      "source_count": 10,
+      "citation_count": 1,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 8712,
+        "input_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "output_tokens": 878,
+        "output_tokens_details": {
+          "reasoning_tokens": 732
+        },
+        "total_tokens": 9590,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 1,
+        "cost_in_usd_ticks": 257720000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 1,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 7510,
+          "output_tokens": 535
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.6",
+      "citation_urls": [
+        "https://www.cnnbrasil.com.br/nacional/brasil/temporais-e-chuva-forte-veja-como-fica-o-tempo-no-brasil-nesta-quarta-14/"
+      ]
+    },
+    {
+      "requested_model": "xai.grok-4.7",
+      "returned_model": "xai.grok-4.7",
+      "tested_at": "2026-10-14T11:24:43.909978-03:00",
+      "app_http": 200,
+      "oci_http": 200,
+      "seconds": 12.97,
+      "websearch_confirmed": true,
+      "completed_searches": 3,
+      "source_count": 20,
+      "citation_count": 1,
+      "tool_events": [
+        {
+          "status": "completed",
+          "action": "search"
+        },
+        {
+          "status": "completed",
+          "action": "search"
+        },
+        {
+          "status": "completed",
+          "action": "search"
+        }
+      ],
+      "usage": {
+        "input_tokens": 16570,
+        "input_tokens_details": {
+          "cached_tokens": 3456
+        },
+        "output_tokens": 1208,
+        "output_tokens_details": {
+          "reasoning_tokens": 988
+        },
+        "total_tokens": 17778,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 3,
+        "cost_in_usd_ticks": 502040000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 3,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 14183,
+          "output_tokens": 1022
+        }
+      },
+      "error": null,
+      "health_model": "xai.grok-4.7",
+      "citation_urls": [
+        "https://ndmais.com.br/tempo/tempestades-1-342-municipios-alerta-laranja-quarta-feira-14/"
+      ]
+    }
+  ],
+  "aggregate_usage": {
+    "input_tokens": 69948,
+    "output_tokens": 6426,
+    "total_tokens": 76374,
+    "num_server_side_tools_used": 13,
+    "cost_in_usd_ticks": 1828201000
+  },
+  "test_runtime": {
+    "python": "3.12.7",
+    "fastapi": "0.143.1",
+    "starlette": "1.8.0",
+    "httpx": "0.28.1",
+    "requests": "2.34.2"
+  }
+}

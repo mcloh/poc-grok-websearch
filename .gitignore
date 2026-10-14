@@ -13,3 +13,4 @@ render_check.py
 evidence/*
 !evidence/RELATORIO.md
 !evidence/validation-summary.json
+!evidence/grok-websearch-models.json

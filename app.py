@@ -20,7 +20,7 @@ class Chat(BaseModel):
     message:str=Field(min_length=1,max_length=8000)
     history:list[Turn]=Field(default_factory=list,max_length=12)
 @app.get('/health')
-def health():return {'status':'ok','provider':'OCI','model':'xai.grok-4.3','tool':'web_search'}
+def health():return {'status':'ok','provider':'OCI','model':os.environ.get('OCI_MODEL','xai.grok-4.3'),'tool':'web_search'}
 @app.get('/',dependencies=[Depends(authorize)])
 def index():return FileResponse('static/index.html')
 @app.get('/app.js',dependencies=[Depends(authorize)])
@@ -32,7 +32,7 @@ async def chat(q:Chat):
     base=os.environ['OCI_BASE_URL'].rstrip('/')
     if urlparse(base).hostname!='inference.generativeai.us-chicago-1.oci.oraclecloud.com':raise HTTPException(503,'Endpoint OCI inválido')
     now=datetime.now(ZoneInfo('America/Sao_Paulo'))
-    body={'model':'xai.grok-4.3','input':[t.model_dump() for t in q.history]+[{'role':'user','content':q.message}],
+    body={'model':os.environ.get('OCI_MODEL','xai.grok-4.3'),'input':[t.model_dump() for t in q.history]+[{'role':'user','content':q.message}],
       'instructions':f'Você é um assistente em português brasileiro. Hoje é {now.isoformat()}. Use a ferramenta web_search para verificar informações atuais. Cite fontes com URLs e datas. Diferencie data de publicação e data do fato. Nunca invente notícias; se não houver evidência de hoje, diga isso claramente.',
       'tools':[{'type':'web_search'}],'store':False,'max_output_tokens':2400}
     started=time.monotonic()

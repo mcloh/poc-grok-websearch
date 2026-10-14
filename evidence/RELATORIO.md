@@ -19,3 +19,7 @@ Fonte: [Agência Brasil — Confira a agenda dos presidenciáveis nesta quarta-f
 A ferramenta executou uma busca inicial que falhou, reformulou consultas e concluiu a pesquisa. As respostas brutas, identificadores OCI, capturas e cópia integral da fonte permanecem locais e não são versionados. O SHA-256 da fonte permite conferir o artefato local.
 
 A chamada final consumiu 15.544 tokens. Incluindo os diagnósticos bem-sucedidos, foram 34.829 tokens e nove ferramentas contabilizadas pelo serviço. A escala financeira de cost_in_usd_ticks não foi verificada; o campo é preservado sem conversão para dólares.
+
+## Matriz de versões Grok
+
+Em 14/10/2026, sete modelos de texto passaram no teste da mesma aplicação via TestClient e inferência OCI real: Grok 4.3, 4.6, 4.7 e as quatro variantes 4.20. Veja a [matriz estruturada](grok-websearch-models.json) e a [metodologia no README](../README.md#modelos-com-web_search-confirmado-em-14102026). Cada confirmação exige busca concluída com fontes e citações; os tempos são observações isoladas. A matriz consumiu 76.374 tokens e 13 ferramentas contabilizadas pelo serviço, separadamente das validações originais acima.

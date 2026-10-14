@@ -1,6 +1,6 @@
 # Grok Web Search via OCI
 
-POC de chatbot com interface JavaScript e backend Python/FastAPI. Usa `xai.grok-4.3` pela OCI Generative AI e habilita a ferramenta nativa `web_search` na Responses API. A aplicação chama exclusivamente o endpoint OCI.
+POC de chatbot com interface JavaScript e backend Python/FastAPI. Usa Grok (padrão `xai.grok-4.3`, configurável por `OCI_MODEL`) pela OCI Generative AI e habilita a ferramenta nativa `web_search` na Responses API. A aplicação chama exclusivamente o endpoint OCI.
 
 ## Estrutura
 
@@ -11,14 +11,17 @@ POC de chatbot com interface JavaScript e backend Python/FastAPI. Usa `xai.grok-
 │   ├── index.html                  # Interface e estilos
 │   └── app.js                      # Chat, histórico e citações
 ├── requirements.txt
+├── requirements-test.txt           # TestClient para matriz de modelos
 ├── Dockerfile
 ├── .dockerignore
 ├── .gitignore
 ├── .env.example                    # Variáveis sem credenciais
 ├── validate.py                     # Validação REST com inferência real
+├── test_models.py                  # Matriz de modelos pela mesma aplicação
 └── evidence/
     ├── RELATORIO.md                # Resultados da POC
-    └── validation-summary.json     # Evidências selecionadas
+    ├── validation-summary.json     # Evidências selecionadas
+    └── grok-websearch-models.json   # Matriz de compatibilidade datada
 ```
 
 ## Configuração
@@ -37,6 +40,7 @@ Preencha `.env`:
 | Variável | Finalidade |
 |---|---|
 | `OCI_BASE_URL` | `https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/v1` |
+| `OCI_MODEL` | Modelo Grok; padrão `xai.grok-4.3` |
 | `OCI_API_KEY` | Chave OCI Generative AI |
 | `OCI_PROJECT_ID` | Identificador de projeto ativo em Chicago |
 | `APP_PASSWORD` | Senha forte para o usuário `poc` |
@@ -91,6 +95,49 @@ O backend envia `tools: [{"type":"web_search"}]`, `store:false` e limite de 2400
 A Oracle informa que os modelos Grok acessados pela OCI são hospedados externamente pela xAI. A aplicação autentica e chama exclusivamente OCI. Veja a [documentação Oracle](https://docs.oracle.com/en-us/iaas/Content/generative-ai/api-keys.htm).
 
 Nos testes de 14/10/2026, `/openai/v1/responses` rejeitou `web_search` para Grok; `/v1/responses` e `/20231130/actions/v1/responses` funcionaram com um projeto ativo de Chicago. A aplicação usa `/v1/responses`.
+
+## Modelos com web_search confirmado em 14/10/2026
+
+Teste da mesma rota `/api/chat` em processos locais isolados via FastAPI TestClient, com inferência real na OCI **us-chicago-1**, endpoint **`/v1/responses`**, projeto ativo e `tools: [{"type":"web_search"}]`. Não foram chamadas APIs diretas da xAI. A implantação pública original foi validada com Grok 4.3; esta matriz usa a aplicação local para variar os modelos sem interromper a VM.
+
+| Modelo solicitado e retornado | Busca nativa | HTTP app/OCI | Buscas concluídas | Citações | Tempo (s) |
+|---|---|---|---:|---:|---:|
+| `xai.grok-4.20-0309-non-reasoning` | Confirmado | 200/200 | 2 | 1 | 3.62 |
+| `xai.grok-4.20-0309-reasoning` | Confirmado | 200/200 | 1 | 2 | 14.80 |
+| `xai.grok-4.20-non-reasoning` | Confirmado | 200/200 | 2 | 1 | 3.22 |
+| `xai.grok-4.20-reasoning` | Confirmado | 200/200 | 2 | 1 | 17.09 |
+| `xai.grok-4.3` | Confirmado | 200/200 | 2 | 1 | 9.24 |
+| `xai.grok-4.6` | Confirmado | 200/200 | 1 | 1 | 35.17 |
+| `xai.grok-4.7` | Confirmado | 200/200 | 3 | 1 | 12.97 |
+
+Critério de confirmação: HTTP 200, pelo menos um evento `web_search_call` com ação `search` e status `completed`, fontes não vazias e citações estruturadas. HTTP 200 isolado não comprova a execução de busca.
+
+Foram sete chamadas, sem retries, com até duas inferências simultâneas e 2400 tokens de saída por chamada. Todos os modelos retornaram exatamente o identificador solicitado. Os testes cobrem os sete modelos de texto Grok do catálogo local; Voice Agent, Multi-Agent e outros identificadores não foram testados. O resultado vale para esta data, região, endpoint e permissões; não confirma todas as regiões ou interfaces OCI. A validação da busca não equivale à verificação independente de todas as notícias retornadas.
+
+Os tempos são observações de uma chamada por modelo, sob concorrência limitada, e não constituem benchmark. Consumo agregado: **76.374 tokens** (69.948 de entrada e 6.426 de saída), com **13 ferramentas** contabilizadas pelo serviço. `cost_in_usd_ticks` foi preservado sem conversão financeira.
+
+Para escolher um modelo, defina `OCI_MODEL` no `.env` e reinicie o serviço. O padrão continua `xai.grok-4.3`; `/health` e o indicador da UI refletem a configuração.
+
+Para reproduzir a matriz (sete chamadas pagas):
+
+```bash
+. .venv/bin/activate
+pip install -r requirements-test.txt
+set -a
+. ./.env
+set +a
+python test_models.py
+```
+
+Para testar somente um modelo:
+
+```bash
+python test_models.py --models xai.grok-4.7
+```
+
+O [script](test_models.py) salva respostas brutas localmente em `./evidence/model-tests-raw/` (ignoradas pelo Git) e um [resumo da matriz](evidence/grok-websearch-models.json), sem credenciais nem identificadores de projeto. Execuções parciais na mesma data preservam os resultados dos demais modelos já testados. As versões do runtime usado na matriz original estão no JSON; a reprodução instala as dependências fixadas do aplicativo.
+
+Referências do fornecedor: [Grok 4.20](https://docs.oracle.com/en-us/iaas/Content/generative-ai/xai-grok-4-20.htm), [Grok 4.6](https://docs.oracle.com/en-us/iaas/Content/generative-ai/xai-grok-4-6.htm) e [Grok 4.7](https://docs.oracle.com/en-us/iaas/Content/generative-ai/x-ai-grok-4-7.htm). A confirmação nesta tabela vem dos testes de execução.
 
 ## API REST
 
