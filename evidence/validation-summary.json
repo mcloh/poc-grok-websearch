@@ -1,0 +1,78 @@
+{
+  "tested_at": "2026-10-14T10:34:33.339815-03:00",
+  "http": 200,
+  "seconds": 37.25,
+  "provider": "OCI",
+  "model": "xai.grok-4.3",
+  "web_search_calls": [
+    {
+      "type": "search",
+      "status": "failed"
+    },
+    {
+      "type": "search",
+      "status": "completed"
+    },
+    {
+      "type": "search",
+      "status": "completed"
+    },
+    {
+      "type": "open_page",
+      "status": "completed"
+    }
+  ],
+  "citation_count": 2,
+  "source": {
+    "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/confira-agenda-dos-presidenciaveis-nesta-quarta-feira-14",
+    "http": 200,
+    "visible_publication": "14/10/2026 - 08:17",
+    "html_sha256": "f7642c836aa347cf4d04ea68eb2f24d3888172669ee4be1099b8f5c5cec7d12b"
+  },
+  "usage": {
+    "input_tokens": 14359,
+    "input_tokens_details": {
+      "cached_tokens": 5760
+    },
+    "output_tokens": 1185,
+    "output_tokens_details": {
+      "reasoning_tokens": 798
+    },
+    "total_tokens": 15544,
+    "num_sources_used": 0,
+    "num_server_side_tools_used": 3,
+    "cost_in_usd_ticks": 298632500,
+    "server_side_tool_usage_details": {
+      "web_search_calls": 3,
+      "x_search_calls": 0,
+      "x_posts_fetched": 0,
+      "x_users_fetched": 0,
+      "code_interpreter_calls": 0,
+      "file_search_calls": 0,
+      "mcp_calls": 0,
+      "document_search_calls": 0,
+      "image_generation_calls": 0
+    },
+    "context_details": {
+      "input_tokens": 7565,
+      "output_tokens": 466
+    }
+  },
+  "http_checks": {
+    "index": 200,
+    "app.js": 200,
+    "health": 200,
+    "unauthenticated_post": 401,
+    "invalid_history": 422
+  },
+  "browser_checks": {
+    "http": 200,
+    "js_errors": [],
+    "desktop": true,
+    "mobile_no_overflow": true
+  },
+  "render_check": {
+    "answer_rendered": true,
+    "method": "Fixture da resposta REST real previamente coletada, sem nova inferência"
+  }
+}

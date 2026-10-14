@@ -1,0 +1,15 @@
+# Credenciais e ambientes locais
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+# Diagnósticos e configuração específicos do ambiente
+deploy.py
+browser_check.py
+render_check.py
+# Compartilhar somente evidências selecionadas
+evidence/*
+!evidence/RELATORIO.md
+!evidence/validation-summary.json
