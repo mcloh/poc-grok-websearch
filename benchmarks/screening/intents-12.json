@@ -1,0 +1,94 @@
+{
+  "reference_date": "2026-10-15",
+  "timezone": "America/Sao_Paulo",
+  "selection_rule": "SHA256(seed|category|id|prompt_sha256), três menores hashes por categoria; ordem alternada por tema",
+  "selection_seed": "grok-retrospective-screening-v1",
+  "source_dataset_sha256": "8a0853e741894e8dca737250845297eb75de60e0494b9aeb2f07fd2506d6acde",
+  "retrospective": true,
+  "intents": [
+    {
+      "id": "I006",
+      "category": "culinaria",
+      "intent": "festival gastronômico em andamento",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais festivais gastronômicos estão acontecendo nesta semana em São Paulo, com datas e participantes? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "36d5d240061a327be7d16f82eb8c3405e02a255cd17ec92d91f8d62c5a2d1838"
+    },
+    {
+      "id": "I047",
+      "category": "esportes",
+      "intent": "próximo card do UFC",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo evento do UFC, quais lutas estão confirmadas e onde assistir no Brasil? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "4bf73cf45fe62d1d17e484418e5c107f3bd191034403cd6748819cf732167c45"
+    },
+    {
+      "id": "I075",
+      "category": "clima",
+      "intent": "comparação de previsões atuais",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Compare as previsões atuais do INMET e de outro serviço para a temperatura e chuva em Belo Horizonte amanhã; destaque divergências. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "8c4fda5910f4c2872bac055d0fa55a46bbea65f1343476b325c2766d063ee01c"
+    },
+    {
+      "id": "I100",
+      "category": "entretenimento",
+      "intent": "visitação e bilheteria de atração atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais são os horários de funcionamento e preços de ingresso atuais do Museu do Futebol em São Paulo e há aviso de fechamento nesta semana? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f36c95b21499a98c811a51af02247698803d7f387a10737c739ab40795277293"
+    },
+    {
+      "id": "I017",
+      "category": "culinaria",
+      "intent": "concurso gastronômico recente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quem venceu o concurso de melhor queijo no campeonato brasileiro mais recente? Informe o nome e a data do concurso. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "36c3c21fe52815081f09b828331c5c5577a32dc91a296eb0bf059fafd041ee9d"
+    },
+    {
+      "id": "I027",
+      "category": "esportes",
+      "intent": "partidas da seleção feminina",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo jogo confirmado da seleção brasileira feminina de futebol, com adversário, local e transmissão? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "5042539efe0822fbcd47645e86e11a9f25dc7276be67ec89e302f99935b9d91f"
+    },
+    {
+      "id": "I056",
+      "category": "clima",
+      "intent": "condição para trilha em data próxima",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão atual para trilha em Campos do Jordão no próximo sábado de manhã, com chuva e temperatura? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "e4745eff05345e016e8e3a962ab2ac7df60a25bbd98356af67733cc06854e26f"
+    },
+    {
+      "id": "I099",
+      "category": "entretenimento",
+      "intent": "evento de cultura pop próximo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais eventos de cultura pop ou quadrinhos estão confirmados no estado de São Paulo para os próximos 30 dias? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1cb9897fe374c88a1319dbabe4f530faf68a1dcb89bf80edfd1c0043aec60653"
+    },
+    {
+      "id": "I004",
+      "category": "culinaria",
+      "intent": "brunch do próximo domingo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais hotéis em São Paulo anunciam brunch para o próximo domingo, com preços e horários? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "8496f2847c6920205e32ef7f297b0a76e1d94fba27e5b1200feb8003cdd9ad11"
+    },
+    {
+      "id": "I039",
+      "category": "esportes",
+      "intent": "próxima etapa da Fórmula 1",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo Grande Prêmio de Fórmula 1 e quais são os horários oficiais de treinos, classificação e corrida em Brasília? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "dfae3c7a38e6bc2cb0be6fb392d474296acba3fb7aacf1b906d3643687ada978"
+    },
+    {
+      "id": "I061",
+      "category": "clima",
+      "intent": "onda de calor vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais estados brasileiros têm alertas oficiais vigentes de onda de calor e até quando? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "b0e7eddb6280bfcdc0ce87ff6069583c40b176d01de9c59721c16e4a25ddaa12"
+    },
+    {
+      "id": "I091",
+      "category": "entretenimento",
+      "intent": "lançamento recente de álbum",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais álbuns de artistas brasileiros foram lançados nos últimos sete dias? Informe artista, título e data. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "2c0f83d9cb7ae97778646aedc15e690380621be6f1c0816d45c4179628b747e2"
+    }
+  ]
+}

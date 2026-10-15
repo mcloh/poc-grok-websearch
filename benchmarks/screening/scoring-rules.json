@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "retrospective": true,
+  "weights": {
+    "cost": 0.5,
+    "search_reliability": 0.3,
+    "latency": 0.2
+  },
+  "category_weight": 0.25,
+  "cutoff_score": 70,
+  "minimum_confirmed_searches": 11,
+  "required_known_costs": 12,
+  "primary_score": "Por intenção: 100*(0.50*menor_custo/custo_modelo + 0.30*busca_confiável + 0.20*menor_latência/latência_modelo). Eficiência recebe zero quando a busca não é confiável. Média de três intenções por tema; cada tema pesa 25%.",
+  "reliability": "HTTP 200, custo conhecido, busca completed com fontes e citações, texto final não vazio e resposta não truncada; não é nota de correção factual.",
+  "normalization": "Melhor custo e melhor latência entre respostas confiáveis da mesma intenção; falhas não entram como melhores.",
+  "aliases": "Notas dos IDs da mesma configuração são promediadas; ambos devem satisfazer os gates. Selecionar duas configurações distintas com nota >=70, por ordem de nota. Não forçar dois aprovados.",
+  "ties": [
+    "menor custo médio por interação",
+    "menor mediana de latência",
+    "nome da configuração em ordem alfabética"
+  ],
+  "sampling": "12 consultas: três por tema; seleção usa apenas hashes dos prompts, sem acesso aos resultados financeiros na função de seleção.",
+  "uncertainty": "Bootstrap estratificado e pareado de 2000 reamostragens, seed 20261015; intervalo descritivo de variabilidade de casos, não confiança populacional nem avaliação factual."
+}

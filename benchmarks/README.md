@@ -1,10 +1,14 @@
 # Benchmarks Grok via OCI — consumo, ferramentas e custo
 
-Consolidação dos testes realizados em **14 e 15/10/2026**, com custos valorados pela lista Oracle consultada em **15/10/2026**. Todos os valores financeiros estão em **USD**, para processamento padrão e contexto curto.
+Consolidação dos testes realizados em **14 e 15/10/2026**, com custos valorados pela lista Oracle consultada em **15/10/2026**. Todos os valores financeiros estão em **USD**, para processamento padrão, com faixas de contexto curto e longo quando aplicáveis.
 
 ## Sumário executivo
 
-**Decisão recomendada: manter Grok 4.3 como modelo padrão de custo para o chatbot cotidiano com websearch desta POC.** No conjunto avaliado, cada interação custou em média **US$ 0,040643**, contra **US$ 0,071787** no Grok 4.20 non-reasoning: economia de **43,38%**, com busca confirmada nos dois modelos em todas as consultas.
+**A auditoria retrospectiva com os sete IDs selecionou Grok 4.3 e Grok 4.20 non-reasoning, pelo corte operacional de 70/100.** A escolha original de Grok 4.3 e 4.20 non-reasoning foi heurística. O [pré-teste posterior de 12 perguntas por ID](screening/README.md) estabelece uma comparação uniforme e registra sua cronologia e limitações.
+
+A confirmação da segunda vaga depende do cache observado: no cenário contábil secundário sem desconto de cache, somente Grok 4.3 passa o corte. O teste não pontua qualidade factual.
+
+No lote anterior de 100 intenções, Grok 4.3 custou **US$ 0,040643 por interação**, contra **US$ 0,071787** no 4.20 non-reasoning: economia de **43,38%** entre esses dois candidatos. Esse resultado não estabelece superioridade perante todos os modelos.
 
 A comparação usou **as mesmas 100 intenções por modelo**, distribuídas entre culinária, esportes, clima e entretenimento. A tabela abaixo apresenta o custo unitário observado, incluindo os tokens consumidos durante o uso das ferramentas e a cobrança do websearch.
 
@@ -18,7 +22,7 @@ A comparação usou **as mesmas 100 intenções por modelo**, distribuídas entr
 
 O resultado é explicado pelo comportamento de execução: embora as tarifas por token dos dois candidatos sejam iguais, o Grok 4.3 fez menos buscas e processou menos contexto. Ele custou menos em **95 dos 100 pares** e apresentou mediana de resposta de **10,60 s**, ante **13,55 s** do 4.20 non-reasoning.
 
-**Investimento no experimento:** US$ 11,243038 nas 200 interações do lote principal. O histórico completo, incluindo a POC e a triagem de todos os identificadores, soma US$ 11,505274 em 210 chamadas. Somente o lote pareado sustenta a comparação econômica entre os dois finalistas. A qualidade factual das respostas ainda não foi pontuada.
+**Investimento conhecido:** US$ 20,963443 em **294 respostas com uso**, incluindo US$ 9,458169 nas 84 respostas da auditoria. Essa etapa exigiu 91 tentativas HTTP, com sete rejeições de infraestrutura sem custo determinável por ausência de `usage`. A qualidade factual ainda não foi pontuada.
 
 ## Escopo e evidências
 
@@ -27,11 +31,12 @@ O resultado é explicado pelo comportamento de execução: embora as tarifas por
 | Validação da POC | 14/10/2026 | 3 | Confirmar rotas Responses, REST público e busca com Grok 4.3 |
 | Matriz de compatibilidade | 14/10/2026 | 7 | Uma consulta de notícia por identificador Grok |
 | Benchmark pareado | 15/10/2026 | 200 | As mesmas 100 intenções em Grok 4.20 non-reasoning e Grok 4.3 |
-| **Total com uso preservado** | **14–15/10/2026** | **210** | **Inventário financeiro, não uma única amostra comparável** |
+| Auditoria retrospectiva | 15/10/2026 | 84 respostas / 91 tentativas HTTP | Mesmas 12 perguntas nos sete IDs, três por tema; corte ponderado |
+| **Total com uso preservado** | **14–15/10/2026** | **294** | **Inventário financeiro, não uma única amostra comparável** |
 
 Os sete identificadores incluem os aliases `xai.grok-4.20-reasoning` e `xai.grok-4.20-non-reasoning`, que, na documentação consultada, apontam para as versões `0309` correspondentes. Portanto, sete identificadores testados não representam sete configurações independentes de modelo. Voice Agent e Multi-Agent não integram este estudo.
 
-As três etapas são contabilizadas sem sobreposição. Os erros de diagnóstico sem contadores de uso não entram no total: ausência de `usage` não é tratada como prova de custo zero. O consolidado não substitui a fatura OCI.
+As quatro etapas são contabilizadas sem sobreposição. Os erros de diagnóstico sem contadores de uso não entram no total: ausência de `usage` não é tratada como prova de custo zero. O consolidado não substitui a fatura OCI.
 
 ## Resultado financeiro consolidado
 
@@ -46,34 +51,37 @@ Valores por **1 milhão de tokens**, exceto websearch:
 | Grok 4.6 | 2,00 | 0,50 | 6,00 |
 | Grok 4.7 | 2,00 | 0,50 | 6,00 |
 
+As tarifas da tabela são de contexto curto. A faixa longa dobra as tarifas da família 4.20/4.3 para 2,50/0,40/5,00 e da família 4.6/4.7 para 4,00/1,00/12,00 (entrada/cache/saída, por milhão). A aplicação observada está documentada no [adendo](screening/ADENDO-CONTABILIDADE.md).
+
 **Websearch nativo xAI via OCI: US$ 5,00 por 1.000 chamadas**, SKU `B112610`. A contabilização usa o número de chamadas tarifadas informado pelo provedor, não o número de perguntas nem uma contagem manual de eventos.
 
-Fontes: [lista de preços Oracle](https://www.oracle.com/cloud/price-list/), [preços congelados do benchmark](oracle-prices.json) e [consolidado com SKUs complementares de 4.6/4.7](financial-consolidation.json). O consolidado registra preços, datas, hashes e contadores históricos suficientes para refazer a soma. O arquivo original de preços do lote foi preservado para manter o hash do manifesto.
+Fontes: [lista de preços Oracle](https://www.oracle.com/cloud/price-list/), [preços congelados do benchmark](oracle-prices.json) e [preços complementares e faixas longas](screening/oracle-prices.json). O consolidado registra preços, datas, hashes e contadores históricos suficientes para refazer a soma. O arquivo original de preços do lote foi preservado para manter o hash do manifesto.
 
 ### Custos por etapa
 
 | Etapa | Entrada sem cache USD | Cache USD | Saída USD | Websearch USD | Total USD |
-|---|---:|---:|---:|---:|---:|
+|---|---|---|---|---|---|
 | Validação da POC | 0,023511 | 0,002534 | 0,008370 | 0,045000 | 0,079416 |
 | Matriz de compatibilidade | 0,091164 | 0,003290 | 0,023366 | 0,065000 | 0,182820 |
 | Benchmark pareado | 5,428386 | 0,501094 | 0,518558 | 4,795000 | 11,243038 |
-| **Total** | **5,543062** | **0,506918** | **0,550294** | **4,905000** | **11,505274** |
+| Auditoria retrospectiva | 4,575965 | 1,239002 | 0,953202 | 2,690000 | 9,458169 |
+| **Total** | 10,119027 | 1,745920 | 1,503496 | 7,595000 | 20,963443 |
 
 ### Todos os identificadores testados
 
-A tabela abaixo consolida financeiramente as três etapas. Os tamanhos de amostra são diferentes; a média histórica é descritiva e **não deve ser usada como ranking entre os sete identificadores**.
+Inventário das quatro etapas, com amostras diferentes: **as médias históricas não são ranking**. A comparação uniforme dos sete IDs está na [auditoria de seleção](screening/README.md).
 
-| Identificador OCI | Chamadas | Custo dos tokens¹ USD | Websearch USD | Total USD | Média histórica USD/interação |
-|---|---:|---:|---:|---:|---:|
-| `xai.grok-4.20-0309-non-reasoning` | 1 | 0,011960 | 0,010000 | 0,021960 | 0,021960 |
-| `xai.grok-4.20-0309-reasoning` | 1 | 0,013099 | 0,005000 | 0,018099 | 0,018099 |
-| `xai.grok-4.20-non-reasoning` | 101 | 3,956892 | 3,245000 | 7,201892 | 0,071306 |
-| `xai.grok-4.20-reasoning` | 1 | 0,012605 | 0,010000 | 0,022605 | 0,022605 |
-| `xai.grok-4.3` | 104 | 2,549742 | 1,615000 | 4,164742 | 0,040046 |
-| `xai.grok-4.6` | 1 | 0,020772 | 0,005000 | 0,025772 | 0,025772 |
-| `xai.grok-4.7` | 1 | 0,035204 | 0,015000 | 0,050204 | 0,050204 |
+| Identificador OCI | Respostas | Tokens USD | Websearch USD | Total USD | Média histórica USD/interação |
+|---|---|---|---|---|---|
+| `xai.grok-4.20-0309-non-reasoning` | 13 | 0,481469 | 0,415000 | 0,896469 | 0,068959 |
+| `xai.grok-4.20-0309-reasoning` | 13 | 0,506283 | 0,305000 | 0,811283 | 0,062406 |
+| `xai.grok-4.20-non-reasoning` | 113 | 4,468418 | 3,640000 | 8,108418 | 0,071756 |
+| `xai.grok-4.20-reasoning` | 13 | 0,462307 | 0,290000 | 0,752307 | 0,057870 |
+| `xai.grok-4.3` | 116 | 2,863576 | 1,810000 | 4,673576 | 0,040289 |
+| `xai.grok-4.6` | 13 | 1,547842 | 0,485000 | 2,032842 | 0,156372 |
+| `xai.grok-4.7` | 13 | 3,038548 | 0,650000 | 3,688548 | 0,283734 |
 
-¹ Inclui entrada sem cache, cache e saída; tokens de raciocínio já estão na saída. Valores são arredondados somente na apresentação; o [JSON consolidado](financial-consolidation.json) preserva a precisão de cálculo.
+O [consolidado atual](screening/financial-consolidation.json) preserva valores completos; o [baseline de 210 respostas](financial-consolidation.json) continua intacto. Sete rejeições da auditoria sem `usage` estão fora dos custos conhecidos, sem serem tratadas como custo zero.
 
 ### Comparação controlada — 100 intenções por modelo
 
@@ -123,6 +131,10 @@ As médias desta seção usam **100 interações por modelo**, sem misturar os t
 
 ## Metodologia
 
+### Auditoria posterior da seleção
+
+A seleção inicial abaixo explica uma decisão histórica de escopo, sem corte equitativo entre todos os modelos. Após questionamento metodológico, foram feitas 84 novas inferências: as mesmas 12 perguntas, três por tema, nos sete IDs. Pesos, corte, gates e agrupamento de aliases foram congelados antes dessas chamadas. O [relatório da auditoria](screening/README.md) apresenta notas, variabilidade, exceções operacionais e a dupla indicada para uma próxima comparação completa. A auditoria não transforma o desenho inicial em prospectivo.
+
 ### Por que Grok 4.3 e Grok 4.20 non-reasoning receberam as 100 intenções
 
 A escolha foi feita **antes da execução do lote completo**, para responder a uma pergunta de negócio: **qual dos candidatos de menor tarifa consegue atender consultas cotidianas com busca web pelo menor custo total por interação?** Os dois já tinham demonstrado busca nativa funcionando pela OCI e estavam na mesma faixa de preço: US$ 1,25 por milhão de tokens de entrada, US$ 0,20 de cache e US$ 2,50 de saída.
@@ -162,42 +174,40 @@ custo = (entrada sem cache × tarifa entrada
        + web_search_calls × 5 / 1.000
 ```
 
-`cached_tokens` é subconjunto da entrada, e `reasoning_tokens` é subconjunto da saída: nenhum deles é somado novamente. O contexto recuperado pelas ferramentas já aparece nos tokens informados pelo serviço. O contador de chamadas tarifadas é `usage.server_side_tool_usage_details.web_search_calls`; aberturas de página e eventos falhos não são tarifados por uma contagem inferida nossa. `cost_in_usd_ticks` é preservado nas evidências históricas, mas não é a fonte da conversão financeira deste relatório.
+`cached_tokens` é subconjunto da entrada, e `reasoning_tokens` é subconjunto da saída: nenhum deles é somado novamente. O contexto recuperado pelas ferramentas já aparece nos tokens informados pelo serviço. O contador de chamadas tarifadas é `usage.server_side_tool_usage_details.web_search_calls`; aberturas de página e eventos falhos não são tarifados por uma contagem inferida nossa. O custo é calculado por SKUs Oracle. Na auditoria posterior, `cost_in_usd_ticks` também foi usado para resolver a faixa longa por correspondência única ao cálculo dos SKUs, conforme o [adendo contábil](screening/ADENDO-CONTABILIDADE.md).
 
 O custo corresponde ao **uso medido valorado a preço de lista**, sem impostos, descontos contratuais, VM, rede ou armazenamento. As chamadas de 14/10 foram reprecificadas pela referência de 15/10 para produzir um consolidado homogêneo. Não há conciliação com faturamento ou análise de todas as possíveis despesas da conta.
 
 ## Estatísticas consolidadas de tokens e tool calls
 
-### Inventário histórico por identificador — 210 interações
+### Inventário histórico por identificador — 294 respostas
 
-| Identificador OCI | Entrada² | Cache² | Saída³ | Raciocínio³ | Total de tokens | Chamadas websearch |
-|---|---:|---:|---:|---:|---:|---:|
-| `xai.grok-4.20-0309-non-reasoning` | 10.036 | 1.024 | 196 | 0 | 10.232 | 2 |
-| `xai.grok-4.20-0309-reasoning` | 7.712 | 256 | 1.491 | 1.375 | 9.203 | 1 |
-| `xai.grok-4.20-non-reasoning` | 4.826.397 | 2.198.656 | 92.994 | 0 | 4.919.391 | 649 |
-| `xai.grok-4.20-reasoning` | 7.882 | 1.024 | 1.531 | 1.329 | 9.413 | 2 |
-| `xai.grok-4.3` | 2.072.301 | 321.792 | 118.899 | 72.106 | 2.191.200 | 323 |
-| `xai.grok-4.6` | 8.712 | 1.280 | 878 | 732 | 9.590 | 1 |
-| `xai.grok-4.7` | 16.570 | 3.456 | 1.208 | 988 | 17.778 | 3 |
-| **Total** | **6.949.610** | **2.527.488** | **217.197** | **76.530** | **7.166.807** | **981** |
+| Identificador OCI | Entrada | Cache¹ | Saída | Raciocínio² | Total de tokens | Websearch |
+|---|---|---|---|---|---|---|
+| `xai.grok-4.20-0309-non-reasoning` | 586.469 | 269.312 | 12.464 | 0 | 598.933 | 83 |
+| `xai.grok-4.20-0309-reasoning` | 493.766 | 188.928 | 34.980 | 25.922 | 528.746 | 61 |
+| `xai.grok-4.20-non-reasoning` | 5.425.184 | 2.451.328 | 104.333 | 0 | 5.529.517 | 728 |
+| `xai.grok-4.20-reasoning` | 423.457 | 139.392 | 31.739 | 23.469 | 455.196 | 58 |
+| `xai.grok-4.3` | 2.323.819 | 354.560 | 132.436 | 80.151 | 2.456.255 | 362 |
+| `xai.grok-4.6` | 981.041 | 449.024 | 43.216 | 35.777 | 1.024.257 | 97 |
+| `xai.grok-4.7` | 1.812.889 | 1.144.704 | 53.315 | 43.212 | 1.866.204 | 130 |
+| **Total** | 12.046.625 | 4.997.248 | 412.483 | 208.531 | 12.459.108 | 1.519 |
 
-² A coluna entrada já inclui cache. ³ A coluna saída já inclui raciocínio. **Total de tokens = entrada + saída**. Os sete testes pontuais e as três validações da POC não são uma amostra equivalente ao lote pareado.
+¹ Cache é subconjunto da entrada. ² Raciocínio é subconjunto da saída. Total = entrada + saída.
 
-### Médias unitárias de todos os identificadores — histórico
+### Médias unitárias históricas — amostras diferentes
 
-Este quadro atende à visão unitária do inventário completo. Ele mistura etapas com perguntas e tamanhos de amostra distintos: **não usar seus valores como comparação controlada ou ranking**. Para os modelos com uma única chamada, a média é apenas o valor daquela consulta. As médias dos finalistas nesta tabela incluem as validações anteriores; por isso diferem das médias do lote principal de 100 intenções.
+Estas médias misturam etapas e não classificam os modelos. Para médias pareadas dos sete IDs, usar a [amostra uniforme de 12 perguntas](screening/README.md).
 
-| Identificador OCI | Interações na amostra | Tokens médios/interação | Buscas médias/interação | USD médios/interação |
-|---|---:|---:|---:|---:|
-| `xai.grok-4.20-0309-non-reasoning` | 1 | 10.232,00 | 2,00 | 0,02195980 |
-| `xai.grok-4.20-0309-reasoning` | 1 | 9.203,00 | 1,00 | 0,01809870 |
-| `xai.grok-4.20-non-reasoning` | 101 | 48.706,84 | 6,43 | 0,07130587 |
-| `xai.grok-4.20-reasoning` | 1 | 9.413,00 | 2,00 | 0,02260480 |
-| `xai.grok-4.3` | 104 | 21.069,23 | 3,11 | 0,04004560 |
-| `xai.grok-4.6` | 1 | 9.590,00 | 1,00 | 0,02577200 |
-| `xai.grok-4.7` | 1 | 17.778,00 | 3,00 | 0,05020400 |
-
-Tokens totais de entrada + saída, já incluindo cache e raciocínio nos respectivos contadores.
+| ID OCI | Respostas | Tokens/interação | Buscas/interação | USD/interação |
+|---|---|---|---|---|
+| `xai.grok-4.20-0309-non-reasoning` | 13 | 46.071,77 | 6,38 | 0,06895913 |
+| `xai.grok-4.20-0309-reasoning` | 13 | 40.672,77 | 4,69 | 0,06240639 |
+| `xai.grok-4.20-non-reasoning` | 113 | 48.933,78 | 6,44 | 0,07175591 |
+| `xai.grok-4.20-reasoning` | 13 | 35.015,08 | 4,46 | 0,05786978 |
+| `xai.grok-4.3` | 116 | 21.174,61 | 3,12 | 0,04028945 |
+| `xai.grok-4.6` | 13 | 78.789,00 | 7,46 | 0,15637246 |
+| `xai.grok-4.7` | 13 | 143.554,15 | 10,00 | 0,28373446 |
 
 ### Lote pareado isolado — 200 interações
 
@@ -216,9 +226,9 @@ As **959 chamadas de busca** custaram **US$ 4,795**, ou **42,65%** do custo do l
 
 ## Limitações e conclusão
 
-**Recomendação:** manter Grok 4.3 como padrão de custo para o conjunto de consultas cotidianas com websearch avaliado nesta POC. O ganho observado foi consistente no total, nas quatro categorias e em 95% dos pares; a tarifa unitária igual reforça a importância de medir a execução completa, incluindo ferramentas e contexto.
+**Corte operacional da auditoria:** Grok 4.3 e Grok 4.20 non-reasoning. A amostra confirma os dois candidatos originais segundo a regra operacional congelada. O lote anterior de 100 perguntas continua demonstrando menor custo do Grok 4.3 frente ao 4.20 non-reasoning; os demais modelos não receberam esse lote completo.
 
-Grok 4.6, Grok 4.7 e as variantes reasoning da família 4.20 tiveram busca confirmada na triagem, mas somente uma consulta por identificador. Não há evidência neste repositório para classificá-los acima ou abaixo dos finalistas em qualidade, custo médio de 100 intenções ou custo-benefício geral. Os aliases `0309` e sem data também não devem ser tratados como alternativas independentes.
+O [pré-teste retrospectivo](screening/README.md) amplia a evidência para todos os sete IDs, com 12 perguntas iguais, mas não sustenta extrapolação para 100 intenções nem ranking de qualidade factual. Aliases são agrupados em cinco configurações para a seleção das vagas.
 
 Este estudo mede custo, uso de ferramentas e latência observada. Não pontua correção factual, completude, precisão de datas, cobertura das fontes ou satisfação do usuário. Mais buscas não provam maior qualidade; menos buscas não provam pior qualidade. Uma execução por intenção, cache real do serviço e conteúdo volátil da web limitam a extrapolação. Os resultados valem para os identificadores, região, endpoint, preços e datas documentados.
 
@@ -231,7 +241,8 @@ Para uma decisão mais ampla de produto, o próximo passo é avaliar as resposta
 | [INTENCOES.md](INTENCOES.md) / [intents.json](intents.json) | Lista de 100 intenções e prompts exatos com hashes |
 | [PROTOCOLO.md](PROTOCOLO.md) | Regras de execução, custos, orçamento e retomada |
 | [oracle-prices.json](oracle-prices.json) | Preços e SKUs congelados do lote pareado |
-| [financial-consolidation.json](financial-consolidation.json) | Consolidação das 210 chamadas e SKUs dos sete identificadores |
+| [Consolidado atual](screening/financial-consolidation.json) / [baseline](financial-consolidation.json) | 294 respostas com custo conhecido / histórico preservado de 210 |
+| [Auditoria da seleção](screening/README.md) | 12 perguntas × sete IDs, corte ponderado e resultados |
 | [run_benchmark.py](run_benchmark.py) | Coletor: padrão dry run; execução paga exige flags e orçamento |
 | [report.py](report.py) | Regenera relatório do lote a partir dos registros locais, sem inferência |
 | [Relatório do lote](results/comparison-2026-10-15/REPORT.md) | Custos e estatísticas por categoria |
@@ -250,4 +261,4 @@ python benchmarks/run_benchmark.py
 python benchmarks/report.py
 ```
 
-Para uma nova execução paga, consultar o [protocolo](PROTOCOLO.md), definir orçamento autorizado e usar um novo `--run-id` quando apropriado. Credenciais, respostas brutas e registros operacionais não são versionados. Este README e o consolidado financeiro foram produzidos a partir das evidências existentes, sem novas chamadas de inferência.
+Para uma nova execução paga, consultar o [protocolo](PROTOCOLO.md), definir orçamento autorizado e usar um novo `--run-id` quando apropriado. Credenciais, respostas brutas e registros operacionais não são versionados. O consolidado agrega as evidências das etapas descritas; sua regeneração não faz inferências. A auditoria retrospectiva acrescentou 84 novas respostas, documentadas separadamente.

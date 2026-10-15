@@ -50,26 +50,39 @@ def calculate_cost(usage, model, prices):
         calls = usage['server_side_tool_usage_details']['web_search_calls']
         if any(not isinstance(v, int) or v < 0 for v in [total_in, cached, output, calls]) or cached > total_in:
             return {'status': 'unknown', 'reason': 'Invalid usage counters'}
-        # A amostra tem prompts curtos. Bloquear inferência de faixa em contexto longo:
-        # uso agregado de um loop de ferramentas não identifica o tamanho de cada passo.
-        if total_in >= 200000:
-            return {'status': 'unknown', 'reason': 'Long-context band needs per-step verification'}
         detail = usage['server_side_tool_usage_details']
         if any(v for k, v in detail.items() if k != 'web_search_calls'):
             return {'status': 'unknown', 'reason': 'Other billable tools observed'}
-        rate = prices['models']['grok-4.3' if model.endswith('4.3') else 'grok-4.20']
-        regular_cost = D(total_in-cached)*D(rate['input_short']['usd'])/D(1000000)
-        cached_cost = D(cached)*D(rate['cached_short']['usd'])/D(1000000)
-        output_cost = D(output)*D(rate['output_short']['usd'])/D(1000000)
-        search_cost = D(calls)*D(prices['web_search']['usd_per_1000'])/D(1000)
-        return {'status': 'computed_from_measured_usage', 'input_usd': str(regular_cost),
-                'cached_input_usd': str(cached_cost), 'output_usd': str(output_cost),
-                'web_search_usd': str(search_cost),
-                'total_usd': str(regular_cost+cached_cost+output_cost+search_cost),
-                'input_tokens': total_in, 'cached_input_tokens': cached,
-                'output_tokens': output,
-                'reasoning_tokens': usage.get('output_tokens_details', {}).get('reasoning_tokens'),
-                'web_search_calls': calls}
+        family = 'grok-4.20' if model.startswith('xai.grok-4.20-') else model.removeprefix('xai.')
+        rate = prices['models'][family]
+        def priced(band):
+            regular_cost = D(total_in-cached)*D(rate['input_'+band]['usd'])/D(1000000)
+            cached_cost = D(cached)*D(rate['cached_'+band]['usd'])/D(1000000)
+            output_cost = D(output)*D(rate['output_'+band]['usd'])/D(1000000)
+            search_cost = D(calls)*D(prices['web_search']['usd_per_1000'])/D(1000)
+            return {'status': 'computed_from_measured_usage', 'input_usd': str(regular_cost),
+                    'cached_input_usd': str(cached_cost), 'output_usd': str(output_cost),
+                    'web_search_usd': str(search_cost),
+                    'total_usd': str(regular_cost+cached_cost+output_cost+search_cost),
+                    'input_tokens': total_in, 'cached_input_tokens': cached,
+                    'output_tokens': output,
+                    'reasoning_tokens': usage.get('output_tokens_details', {}).get('reasoning_tokens'),
+                    'web_search_calls': calls}
+        if total_in < 200000:
+            return priced('short')
+        # Uso de loops pode ser agregado. Resolver a faixa somente quando a fórmula
+        # dos SKUs Oracle coincide exatamente com o custo nativo carregado pela OCI.
+        ticks = usage.get('cost_in_usd_ticks')
+        if not isinstance(ticks, int) or ticks < 0:
+            return {'status': 'unknown', 'reason': 'Long-context band needs native cost reconciliation'}
+        native = D(ticks)/D(10000000000)
+        matches = [(band, priced(band)) for band in ['short', 'long']
+                   if D(priced(band)['total_usd']) == native]
+        if len(matches) != 1:
+            return {'status': 'unknown', 'reason': 'No unique Oracle price band matching native cost'}
+        band, result = matches[0]
+        return {**result, 'pricing_band': band,
+                'band_validation': 'Oracle SKU formula equals cost_in_usd_ticks / 10^10; not OCI invoice reconciliation'}
     except (KeyError, TypeError):
         return {'status': 'unknown', 'reason': 'Missing billing usage counters'}
 

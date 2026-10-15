@@ -1,0 +1,14 @@
+{
+  "scope": "Pré-teste retrospectivo de 12 prompts iguais por identificador; não altera a história da seleção original.",
+  "baseline_calls": 210,
+  "baseline_cost_usd": "11.50527390",
+  "baseline_source": "../financial-consolidation.json",
+  "expected_calls": 84,
+  "expected_total_calls_after": 294,
+  "new_inference_estimate_usd": [
+    5,
+    10
+  ],
+  "baseline_financial_sha256": "f21cc006fbdab19431617c3a277a2a9a7a97a98ba8e8e74dcb3ca5aaff05958f",
+  "baseline_git_commit": "5510f2d45f93b8a73bc532e2092dad13e72fcc62"
+}

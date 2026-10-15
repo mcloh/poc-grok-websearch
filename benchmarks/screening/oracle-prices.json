@@ -1,0 +1,120 @@
+{
+  "retrieved_at": "2026-10-15T10:32:35.169069-03:00",
+  "price_list_url": "https://www.oracle.com/cloud/price-list/",
+  "data_url": "https://www.oracle.com/a/ocom/docs/pricing/cloud-price-list.json",
+  "data_sha256": "354aa11836c07e2c065700b0efd80253e8c12d9e643e55160fc1ccd9ea7235d9",
+  "currency": "USD",
+  "pricing": "standard; USD por 1 milhão de tokens; busca por 1000 chamadas",
+  "models": {
+    "grok-4.20": {
+      "input_short": {
+        "sku": "B111910",
+        "usd": 1.25
+      },
+      "cached_short": {
+        "sku": "B111911",
+        "usd": 0.2
+      },
+      "output_short": {
+        "sku": "B112076",
+        "usd": 2.5
+      },
+      "input_long": {
+        "sku": "B112077",
+        "usd": 2.5
+      },
+      "cached_long": {
+        "sku": "B112078",
+        "usd": 0.4
+      },
+      "output_long": {
+        "sku": "B112079",
+        "usd": 5
+      }
+    },
+    "grok-4.3": {
+      "input_short": {
+        "sku": "B112080",
+        "usd": 1.25
+      },
+      "cached_short": {
+        "sku": "B112081",
+        "usd": 0.2
+      },
+      "output_short": {
+        "sku": "B112082",
+        "usd": 2.5
+      },
+      "input_long": {
+        "sku": "B112083",
+        "usd": 2.5
+      },
+      "cached_long": {
+        "sku": "B112084",
+        "usd": 0.4
+      },
+      "output_long": {
+        "sku": "B112085",
+        "usd": 5
+      }
+    },
+    "grok-4.6": {
+      "input_short": {
+        "sku": "B112086",
+        "usd": 2
+      },
+      "cached_short": {
+        "sku": "B112087",
+        "usd": 0.5
+      },
+      "output_short": {
+        "sku": "B112589",
+        "usd": 6
+      },
+      "input_long": {
+        "sku": "B112590",
+        "usd": 4
+      },
+      "cached_long": {
+        "sku": "B112591",
+        "usd": 1
+      },
+      "output_long": {
+        "sku": "B112592",
+        "usd": 12
+      }
+    },
+    "grok-4.7": {
+      "input_short": {
+        "sku": "B113303",
+        "usd": 2
+      },
+      "cached_short": {
+        "sku": "B113304",
+        "usd": 0.5
+      },
+      "output_short": {
+        "sku": "B113305",
+        "usd": 6
+      },
+      "input_long": {
+        "sku": "B113306",
+        "usd": 4
+      },
+      "cached_long": {
+        "sku": "B113307",
+        "usd": 1
+      },
+      "output_long": {
+        "sku": "B113308",
+        "usd": 12
+      }
+    }
+  },
+  "web_search": {
+    "sku": "B112610",
+    "usd_per_1000": 5
+  },
+  "screening_checked_at": "2026-10-15T14:45:08.802114+00:00",
+  "screening_feed_sha256": "354aa11836c07e2c065700b0efd80253e8c12d9e643e55160fc1ccd9ea7235d9"
+}

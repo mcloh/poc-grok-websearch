@@ -1,0 +1,635 @@
+{
+  "retrospective": true,
+  "run_id": "screening-2026-10-15-v1",
+  "reference_date": "2026-10-15",
+  "method": "12 prompts idênticos x sete IDs; três por tema; critérios congelados antes das novas inferências; recuperações de rejeições compartilhadas de infraestrutura documentadas à parte",
+  "http_attempts": 91,
+  "infrastructure_rejections": 7,
+  "unknown_cost_infrastructure_attempts": 7,
+  "manifest": {
+    "dataset_sha256": "5487cc3c1a0458d8064ceced8b5bf6610905fad30f5deaa581c063566cb7cfad",
+    "prices_sha256": "8876c4caaf82a4541fe0f79626b778dd7f0980209655c4d679bb6197a7012257",
+    "rules_sha256": "26d3b045b29940d457137d7edd117c3fad022c01f85ee669d7b564cbfa5d9001",
+    "study_sha256": "161ff2f534695771e38ffa3d7cb971845c4b9cc143006d8b8caaaec78477e0c3",
+    "system_sha256": "8a6fa58dbc2539af95cf138848caf4ac704abb6ee738ff197df2859f19788b42",
+    "protocol_sha256": "91f14676799ed4c0bb802bb8fa61369613a905aa0680d29fee028009cb14d61f",
+    "models": [
+      "xai.grok-4.20-0309-non-reasoning",
+      "xai.grok-4.20-0309-reasoning",
+      "xai.grok-4.20-non-reasoning",
+      "xai.grok-4.20-reasoning",
+      "xai.grok-4.3",
+      "xai.grok-4.6",
+      "xai.grok-4.7"
+    ],
+    "reference_date": "2026-10-15",
+    "concurrency": 2,
+    "max_output_tokens": 2400,
+    "timeout_seconds": 150,
+    "retries": 0,
+    "region": "us-chicago-1",
+    "endpoint": "/v1/responses",
+    "retrospective": true
+  },
+  "rules": {
+    "version": "v1",
+    "retrospective": true,
+    "weights": {
+      "cost": 0.5,
+      "search_reliability": 0.3,
+      "latency": 0.2
+    },
+    "category_weight": 0.25,
+    "cutoff_score": 70,
+    "minimum_confirmed_searches": 11,
+    "required_known_costs": 12,
+    "primary_score": "Por intenção: 100*(0.50*menor_custo/custo_modelo + 0.30*busca_confiável + 0.20*menor_latência/latência_modelo). Eficiência recebe zero quando a busca não é confiável. Média de três intenções por tema; cada tema pesa 25%.",
+    "reliability": "HTTP 200, custo conhecido, busca completed com fontes e citações, texto final não vazio e resposta não truncada; não é nota de correção factual.",
+    "normalization": "Melhor custo e melhor latência entre respostas confiáveis da mesma intenção; falhas não entram como melhores.",
+    "aliases": "Notas dos IDs da mesma configuração são promediadas; ambos devem satisfazer os gates. Selecionar duas configurações distintas com nota >=70, por ordem de nota. Não forçar dois aprovados.",
+    "ties": [
+      "menor custo médio por interação",
+      "menor mediana de latência",
+      "nome da configuração em ordem alfabética"
+    ],
+    "sampling": "12 consultas: três por tema; seleção usa apenas hashes dos prompts, sem acesso aos resultados financeiros na função de seleção.",
+    "uncertainty": "Bootstrap estratificado e pareado de 2000 reamostragens, seed 20261015; intervalo descritivo de variabilidade de casos, não confiança populacional nem avaliação factual."
+  },
+  "total": {
+    "interactions": 84,
+    "known_costs": 84,
+    "reliable_searches": 84,
+    "total_usd": "9.45816885",
+    "mean_usd": "0.1125972482142857142857142857",
+    "input_usd": "4.57596475",
+    "cached_input_usd": "1.2390016",
+    "output_usd": "0.9532025",
+    "web_search_usd": "2.690",
+    "input_tokens": 5097015,
+    "cached_input_tokens": 2469760,
+    "output_tokens": 195286,
+    "reasoning_tokens": 132001,
+    "web_search_calls": 538,
+    "mean_total_tokens": "63003.58333333333333333333333",
+    "median_seconds": 26.227
+  },
+  "by_model": {
+    "xai.grok-4.20-0309-non-reasoning": {
+      "model": "xai.grok-4.20-0309-non-reasoning",
+      "configuration": "grok-4.20-non-reasoning",
+      "score": 74.01065453292512,
+      "by_category": {
+        "culinaria": 69.21498503484565,
+        "esportes": 72.89993143074679,
+        "clima": 76.60157508419303,
+        "entretenimento": 77.326126581915
+      },
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "0.87450885",
+      "mean_usd": "0.0728757375",
+      "input_usd": "0.38518125",
+      "cached_input_usd": "0.0536576",
+      "output_usd": "0.0306700",
+      "web_search_usd": "0.405",
+      "input_tokens": 576433,
+      "cached_input_tokens": 268288,
+      "output_tokens": 12268,
+      "reasoning_tokens": 0,
+      "web_search_calls": 81,
+      "mean_total_tokens": "49058.41666666666666666666667",
+      "median_seconds": 12.6395,
+      "case_bootstrap_95_range": [
+        70.93604846765469,
+        77.02627691399306
+      ]
+    },
+    "xai.grok-4.20-0309-reasoning": {
+      "model": "xai.grok-4.20-0309-reasoning",
+      "configuration": "grok-4.20-reasoning",
+      "score": 67.926059113904,
+      "by_category": {
+        "culinaria": 66.939300973136,
+        "esportes": 68.27832931596575,
+        "clima": 63.521998133167465,
+        "entretenimento": 72.96460803334682
+      },
+      "operational_gate_passed": true,
+      "passed": false,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "0.79318440",
+      "mean_usd": "0.06609870",
+      "input_usd": "0.37172750",
+      "cached_input_usd": "0.0377344",
+      "output_usd": "0.0837225",
+      "web_search_usd": "0.300",
+      "input_tokens": 486054,
+      "cached_input_tokens": 188672,
+      "output_tokens": 33489,
+      "reasoning_tokens": 24547,
+      "web_search_calls": 60,
+      "mean_total_tokens": "43295.25",
+      "median_seconds": 33.048500000000004,
+      "case_bootstrap_95_range": [
+        63.8727041625088,
+        71.66759604432121
+      ]
+    },
+    "xai.grok-4.20-non-reasoning": {
+      "model": "xai.grok-4.20-non-reasoning",
+      "configuration": "grok-4.20-non-reasoning",
+      "score": 72.76146105075577,
+      "by_category": {
+        "culinaria": 67.86373397720189,
+        "esportes": 73.92056055882125,
+        "clima": 67.80423848945831,
+        "entretenimento": 81.45731117754164
+      },
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "0.90652565",
+      "mean_usd": "0.07554380416666666666666666667",
+      "input_usd": "0.43264375",
+      "cached_input_usd": "0.0505344",
+      "output_usd": "0.0283475",
+      "web_search_usd": "0.395",
+      "input_tokens": 598787,
+      "cached_input_tokens": 252672,
+      "output_tokens": 11339,
+      "reasoning_tokens": 0,
+      "web_search_calls": 79,
+      "mean_total_tokens": "50843.83333333333333333333333",
+      "median_seconds": 12.383,
+      "case_bootstrap_95_range": [
+        69.96543401558118,
+        76.11276600401955
+      ]
+    },
+    "xai.grok-4.20-reasoning": {
+      "model": "xai.grok-4.20-reasoning",
+      "configuration": "grok-4.20-reasoning",
+      "score": 72.23809313842376,
+      "by_category": {
+        "culinaria": 63.908826140174874,
+        "esportes": 68.14352956483388,
+        "clima": 69.00759929665293,
+        "entretenimento": 87.89241755203336
+      },
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "0.72970235",
+      "mean_usd": "0.06080852916666666666666666667",
+      "input_usd": "0.34650875",
+      "cached_input_usd": "0.0276736",
+      "output_usd": "0.0755200",
+      "web_search_usd": "0.280",
+      "input_tokens": 415575,
+      "cached_input_tokens": 138368,
+      "output_tokens": 30208,
+      "reasoning_tokens": 22140,
+      "web_search_calls": 56,
+      "mean_total_tokens": "37148.58333333333333333333333",
+      "median_seconds": 29.1545,
+      "case_bootstrap_95_range": [
+        69.52862471644511,
+        75.30139296340401
+      ]
+    },
+    "xai.grok-4.3": {
+      "model": "xai.grok-4.3",
+      "configuration": "grok-4.3",
+      "score": 97.14903660620999,
+      "by_category": {
+        "culinaria": 100.0,
+        "esportes": 99.2752401820327,
+        "clima": 98.54118555711648,
+        "entretenimento": 90.7797206856908
+      },
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "0.50883360",
+      "mean_usd": "0.04240280",
+      "input_usd": "0.27343750",
+      "cached_input_usd": "0.0065536",
+      "output_usd": "0.0338425",
+      "web_search_usd": "0.195",
+      "input_tokens": 251518,
+      "cached_input_tokens": 32768,
+      "output_tokens": 13537,
+      "reasoning_tokens": 8045,
+      "web_search_calls": 39,
+      "mean_total_tokens": "22087.91666666666666666666667",
+      "median_seconds": 11.370000000000001,
+      "case_bootstrap_95_range": [
+        95.68117500841532,
+        99.30834306882593
+      ]
+    },
+    "xai.grok-4.6": {
+      "model": "xai.grok-4.6",
+      "configuration": "grok-4.6",
+      "score": 45.50858471800458,
+      "by_category": {
+        "culinaria": 43.367917278455145,
+        "esportes": 47.432918850592024,
+        "clima": 44.64205288452623,
+        "entretenimento": 46.59144985844491
+      },
+      "operational_gate_passed": true,
+      "passed": false,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "2.007070",
+      "mean_usd": "0.1672558333333333333333333333",
+      "input_usd": "1.049170",
+      "cached_input_usd": "0.223872",
+      "output_usd": "0.254028",
+      "web_search_usd": "0.480",
+      "input_tokens": 972329,
+      "cached_input_tokens": 447744,
+      "output_tokens": 42338,
+      "reasoning_tokens": 35045,
+      "web_search_calls": 96,
+      "mean_total_tokens": "84555.58333333333333333333333",
+      "median_seconds": 65.825,
+      "case_bootstrap_95_range": [
+        43.91545712499182,
+        47.38907940711982
+      ]
+    },
+    "xai.grok-4.7": {
+      "model": "xai.grok-4.7",
+      "configuration": "grok-4.7",
+      "score": 43.344240404465566,
+      "by_category": {
+        "culinaria": 43.532006898649726,
+        "esportes": 45.84946646230471,
+        "clima": 41.33823470020622,
+        "entretenimento": 42.657253556701605
+      },
+      "operational_gate_passed": true,
+      "passed": false,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "3.638344",
+      "mean_usd": "0.3031953333333333333333333333",
+      "input_usd": "1.717296",
+      "cached_input_usd": "0.838976",
+      "output_usd": "0.447072",
+      "web_search_usd": "0.635",
+      "input_tokens": 1796319,
+      "cached_input_tokens": 1141248,
+      "output_tokens": 52107,
+      "reasoning_tokens": 42224,
+      "web_search_calls": 127,
+      "mean_total_tokens": "154035.5",
+      "median_seconds": 50.155,
+      "case_bootstrap_95_range": [
+        40.6144424835464,
+        46.40546441452118
+      ]
+    }
+  },
+  "configurations": [
+    {
+      "configuration": "grok-4.3",
+      "members": [
+        "xai.grok-4.3"
+      ],
+      "score": 97.14903660620999,
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "0.50883360",
+      "mean_usd": "0.04240280",
+      "input_usd": "0.27343750",
+      "cached_input_usd": "0.0065536",
+      "output_usd": "0.0338425",
+      "web_search_usd": "0.195",
+      "input_tokens": 251518,
+      "cached_input_tokens": 32768,
+      "output_tokens": 13537,
+      "reasoning_tokens": 8045,
+      "web_search_calls": 39,
+      "mean_total_tokens": "22087.91666666666666666666667",
+      "median_seconds": 11.370000000000001,
+      "case_bootstrap_95_range": [
+        95.68117500841532,
+        99.30834306882593
+      ],
+      "bootstrap_top2_frequency": 1.0
+    },
+    {
+      "configuration": "grok-4.20-non-reasoning",
+      "members": [
+        "xai.grok-4.20-0309-non-reasoning",
+        "xai.grok-4.20-non-reasoning"
+      ],
+      "score": 73.38605779184044,
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 24,
+      "known_costs": 24,
+      "reliable_searches": 24,
+      "total_usd": "1.78103450",
+      "mean_usd": "0.07420977083333333333333333333",
+      "input_usd": "0.81782500",
+      "cached_input_usd": "0.1041920",
+      "output_usd": "0.0590175",
+      "web_search_usd": "0.800",
+      "input_tokens": 1175220,
+      "cached_input_tokens": 520960,
+      "output_tokens": 23607,
+      "reasoning_tokens": 0,
+      "web_search_calls": 160,
+      "mean_total_tokens": "49951.125",
+      "median_seconds": 12.6395,
+      "case_bootstrap_95_range": [
+        70.7982235073648,
+        76.06598395249495
+      ],
+      "bootstrap_top2_frequency": 0.9975
+    },
+    {
+      "configuration": "grok-4.20-reasoning",
+      "members": [
+        "xai.grok-4.20-0309-reasoning",
+        "xai.grok-4.20-reasoning"
+      ],
+      "score": 70.08207612616388,
+      "operational_gate_passed": true,
+      "passed": true,
+      "interactions": 24,
+      "known_costs": 24,
+      "reliable_searches": 24,
+      "total_usd": "1.52288675",
+      "mean_usd": "0.06345361458333333333333333333",
+      "input_usd": "0.71823625",
+      "cached_input_usd": "0.0654080",
+      "output_usd": "0.1592425",
+      "web_search_usd": "0.580",
+      "input_tokens": 901629,
+      "cached_input_tokens": 327040,
+      "output_tokens": 63697,
+      "reasoning_tokens": 46687,
+      "web_search_calls": 116,
+      "mean_total_tokens": "40221.91666666666666666666667",
+      "median_seconds": 29.606,
+      "case_bootstrap_95_range": [
+        67.02618846363141,
+        73.23189119873403
+      ],
+      "bootstrap_top2_frequency": 0.0
+    },
+    {
+      "configuration": "grok-4.6",
+      "members": [
+        "xai.grok-4.6"
+      ],
+      "score": 45.50858471800458,
+      "operational_gate_passed": true,
+      "passed": false,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "2.007070",
+      "mean_usd": "0.1672558333333333333333333333",
+      "input_usd": "1.049170",
+      "cached_input_usd": "0.223872",
+      "output_usd": "0.254028",
+      "web_search_usd": "0.480",
+      "input_tokens": 972329,
+      "cached_input_tokens": 447744,
+      "output_tokens": 42338,
+      "reasoning_tokens": 35045,
+      "web_search_calls": 96,
+      "mean_total_tokens": "84555.58333333333333333333333",
+      "median_seconds": 65.825,
+      "case_bootstrap_95_range": [
+        43.91545712499182,
+        47.38907940711982
+      ],
+      "bootstrap_top2_frequency": 0.0
+    },
+    {
+      "configuration": "grok-4.7",
+      "members": [
+        "xai.grok-4.7"
+      ],
+      "score": 43.344240404465566,
+      "operational_gate_passed": true,
+      "passed": false,
+      "interactions": 12,
+      "known_costs": 12,
+      "reliable_searches": 12,
+      "total_usd": "3.638344",
+      "mean_usd": "0.3031953333333333333333333333",
+      "input_usd": "1.717296",
+      "cached_input_usd": "0.838976",
+      "output_usd": "0.447072",
+      "web_search_usd": "0.635",
+      "input_tokens": 1796319,
+      "cached_input_tokens": 1141248,
+      "output_tokens": 52107,
+      "reasoning_tokens": 42224,
+      "web_search_calls": 127,
+      "mean_total_tokens": "154035.5",
+      "median_seconds": 50.155,
+      "case_bootstrap_95_range": [
+        40.6144424835464,
+        46.40546441452118
+      ],
+      "bootstrap_top2_frequency": 0.0
+    }
+  ],
+  "selected_configurations": [
+    "grok-4.3",
+    "grok-4.20-non-reasoning"
+  ],
+  "original_selection_confirmed": true,
+  "cache_discount_sensitivity": {
+    "secondary": true,
+    "method": "Mesmos tokens e latências observados; entrada em cache reprecificada como entrada normal, sem novas chamadas. Não simula execução fisicamente sem cache.",
+    "selected_configurations": [
+      "grok-4.3"
+    ],
+    "configurations": [
+      {
+        "configuration": "grok-4.3",
+        "members": [
+          "xai.grok-4.3"
+        ],
+        "score": 97.04049195066246,
+        "operational_gate_passed": true,
+        "passed": true,
+        "interactions": 12,
+        "known_costs": 12,
+        "reliable_searches": 12,
+        "total_usd": "0.54324000",
+        "mean_usd": "0.04527000",
+        "input_usd": "0.31439750",
+        "cached_input_usd": "0",
+        "output_usd": "0.0338425",
+        "web_search_usd": "0.195",
+        "input_tokens": 251518,
+        "cached_input_tokens": 32768,
+        "output_tokens": 13537,
+        "reasoning_tokens": 8045,
+        "web_search_calls": 39,
+        "mean_total_tokens": "22087.91666666666666666666667",
+        "median_seconds": 11.370000000000001,
+        "case_bootstrap_95_range": [
+          95.20345769097861,
+          99.30834306882593
+        ],
+        "bootstrap_top2_frequency": 1.0
+      },
+      {
+        "configuration": "grok-4.20-non-reasoning",
+        "members": [
+          "xai.grok-4.20-0309-non-reasoning",
+          "xai.grok-4.20-non-reasoning"
+        ],
+        "score": 67.93084405713441,
+        "operational_gate_passed": true,
+        "passed": false,
+        "interactions": 24,
+        "known_costs": 24,
+        "reliable_searches": 24,
+        "total_usd": "2.32804250",
+        "mean_usd": "0.09700177083333333333333333333",
+        "input_usd": "1.46902500",
+        "cached_input_usd": "0",
+        "output_usd": "0.0590175",
+        "web_search_usd": "0.800",
+        "input_tokens": 1175220,
+        "cached_input_tokens": 520960,
+        "output_tokens": 23607,
+        "reasoning_tokens": 0,
+        "web_search_calls": 160,
+        "mean_total_tokens": "49951.125",
+        "median_seconds": 12.6395,
+        "case_bootstrap_95_range": [
+          65.13208173487911,
+          70.85715751322269
+        ],
+        "bootstrap_top2_frequency": 0.0905
+      },
+      {
+        "configuration": "grok-4.20-reasoning",
+        "members": [
+          "xai.grok-4.20-0309-reasoning",
+          "xai.grok-4.20-reasoning"
+        ],
+        "score": 65.5062227964728,
+        "operational_gate_passed": true,
+        "passed": false,
+        "interactions": 24,
+        "known_costs": 24,
+        "reliable_searches": 24,
+        "total_usd": "1.86627875",
+        "mean_usd": "0.07776161458333333333333333333",
+        "input_usd": "1.12703625",
+        "cached_input_usd": "0",
+        "output_usd": "0.1592425",
+        "web_search_usd": "0.580",
+        "input_tokens": 901629,
+        "cached_input_tokens": 327040,
+        "output_tokens": 63697,
+        "reasoning_tokens": 46687,
+        "web_search_calls": 116,
+        "mean_total_tokens": "40221.91666666666666666666667",
+        "median_seconds": 29.606,
+        "case_bootstrap_95_range": [
+          63.234031445180484,
+          67.79390479015198
+        ],
+        "bootstrap_top2_frequency": 0.0
+      },
+      {
+        "configuration": "grok-4.6",
+        "members": [
+          "xai.grok-4.6"
+        ],
+        "score": 43.10385037403032,
+        "operational_gate_passed": true,
+        "passed": false,
+        "interactions": 12,
+        "known_costs": 12,
+        "reliable_searches": 12,
+        "total_usd": "2.678686",
+        "mean_usd": "0.2232238333333333333333333333",
+        "input_usd": "1.944658",
+        "cached_input_usd": "0",
+        "output_usd": "0.254028",
+        "web_search_usd": "0.480",
+        "input_tokens": 972329,
+        "cached_input_tokens": 447744,
+        "output_tokens": 42338,
+        "reasoning_tokens": 35045,
+        "web_search_calls": 96,
+        "mean_total_tokens": "84555.58333333333333333333333",
+        "median_seconds": 65.825,
+        "case_bootstrap_95_range": [
+          41.369607075039134,
+          45.069965045507836
+        ],
+        "bootstrap_top2_frequency": 0.0
+      },
+      {
+        "configuration": "grok-4.7",
+        "members": [
+          "xai.grok-4.7"
+        ],
+        "score": 40.876305988100796,
+        "operational_gate_passed": true,
+        "passed": false,
+        "interactions": 12,
+        "known_costs": 12,
+        "reliable_searches": 12,
+        "total_usd": "6.155272",
+        "mean_usd": "0.5129393333333333333333333333",
+        "input_usd": "5.073200",
+        "cached_input_usd": "0",
+        "output_usd": "0.447072",
+        "web_search_usd": "0.635",
+        "input_tokens": 1796319,
+        "cached_input_tokens": 1141248,
+        "output_tokens": 52107,
+        "reasoning_tokens": 42224,
+        "web_search_calls": 127,
+        "mean_total_tokens": "154035.5",
+        "median_seconds": 50.155,
+        "case_bootstrap_95_range": [
+          38.39072454922838,
+          43.65534628382452
+        ],
+        "bootstrap_top2_frequency": 0.0
+      }
+    ]
+  },
+  "original_selection": [
+    "grok-4.3",
+    "grok-4.20-non-reasoning"
+  ],
+  "conclusion": "A amostra confirma os dois candidatos originais segundo a regra operacional congelada.",
+  "limits": "Nota operacional relativa, sem pontuação factual. Auditoria retrospectiva; 12 casos não permitem inferir o resultado de 100 intenções nos demais modelos."
+}

@@ -181,6 +181,8 @@ Consulte o [relatório](evidence/RELATORIO.md) e o [resumo estruturado](evidence
 
 Veja o [sumário executivo e o consolidado de todos os modelos testados](benchmarks/README.md).
 
+Uma [auditoria retrospectiva de seleção](benchmarks/screening/README.md) acrescentou as mesmas 12 perguntas em cada um dos sete IDs (84 respostas). O corte operacional ponderado indicou `grok-4.3`, `grok-4.20-non-reasoning`. A escolha original dos dois modelos do lote de 100 perguntas foi heurística e antecedeu essa auditoria.
+
 Foi executada a mesma lista de 100 intenções nos dois candidatos de uso geral, Grok 4.3 e Grok 4.20 non-reasoning: 25 de culinária, 25 de esportes, 25 de clima e 25 de entretenimento por modelo. As 200 interações tiveram HTTP 200 e busca confirmada, sem retries ou duplicação de chamadas. Os hashes do payload compartilhado coincidiram nos 100 pares.
 
 - [Lista das 100 intenções](benchmarks/INTENCOES.md).
