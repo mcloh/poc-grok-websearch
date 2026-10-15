@@ -1,0 +1,706 @@
+{
+  "reference_date": "2026-10-15",
+  "timezone": "America/Sao_Paulo",
+  "intents": [
+    {
+      "id": "I001",
+      "category": "culinaria",
+      "intent": "cardápio executivo atualizado",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o cardápio executivo mais recente do restaurante Figueira Rubaiyat em São Paulo, com preço e dias de funcionamento? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "b2f0fd27c1796c08f39ea4a3d19a6b475a1bb85c9f089545aef1032efe82806f"
+    },
+    {
+      "id": "I002",
+      "category": "culinaria",
+      "intent": "menu degustação e reserva",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o menu degustação atual do D.O.M. em São Paulo, quanto custa e como reservar? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "60ae7f85162a875090435a97c34ac9de53e35774aaf370fed930b9aa1e844165"
+    },
+    {
+      "id": "I003",
+      "category": "culinaria",
+      "intent": "rodízio e preço vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quanto custa hoje o rodízio do Fogo de Chão nos Jardins, em São Paulo, no almoço e no jantar? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "166c8a173d028b26f71a614709d800ba0abc0d7030818d27977607cc270d5478"
+    },
+    {
+      "id": "I004",
+      "category": "culinaria",
+      "intent": "brunch do próximo domingo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais hotéis em São Paulo anunciam brunch para o próximo domingo, com preços e horários? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "8496f2847c6920205e32ef7f297b0a76e1d94fba27e5b1200feb8003cdd9ad11"
+    },
+    {
+      "id": "I005",
+      "category": "culinaria",
+      "intent": "feira gastronômica neste fim de semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Que feiras gastronômicas estão confirmadas na cidade de São Paulo para este fim de semana, com endereços e horários? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "06aa842a6049286e749af8a613db0a1375a436d377df134707447876e7e93816"
+    },
+    {
+      "id": "I006",
+      "category": "culinaria",
+      "intent": "festival gastronômico em andamento",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais festivais gastronômicos estão acontecendo nesta semana em São Paulo, com datas e participantes? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "36d5d240061a327be7d16f82eb8c3405e02a255cd17ec92d91f8d62c5a2d1838"
+    },
+    {
+      "id": "I007",
+      "category": "culinaria",
+      "intent": "restaurantes recém-abertos",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais restaurantes abriram nos últimos 30 dias em São Paulo e que tipo de comida oferecem? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "a0b6dbb5e582d2ad5b53b984304b7cd0f47bdb7d490fc066a013f9b54483f6f5"
+    },
+    {
+      "id": "I008",
+      "category": "culinaria",
+      "intent": "estrelas Michelin vigentes",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais restaurantes de São Paulo têm estrelas na edição mais recente do Guia Michelin? Informe a edição consultada. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "df6d7d203948cc57aaf82b08428ebd1eeb4b4de270a2246232a45fa1d9f2aa75"
+    },
+    {
+      "id": "I009",
+      "category": "culinaria",
+      "intent": "lista Bib Gourmand atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais restaurantes do Rio de Janeiro aparecem no Bib Gourmand mais recente, com especialidades e bairros? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "e03a36969449bf23e22becf14a0a199e72a64839fcf30d3b6211503d9a453627"
+    },
+    {
+      "id": "I010",
+      "category": "culinaria",
+      "intent": "restaurante com opção vegana atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais opções veganas aparecem no cardápio atual do restaurante Mocotó em São Paulo e quais são os preços publicados? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "fe8fad1b0a37807ccd57a459a6cdca670eadd132d42e234f7efc6b35d562e6f8"
+    },
+    {
+      "id": "I011",
+      "category": "culinaria",
+      "intent": "restaurante sem glúten com funcionamento confirmado",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais restaurantes dedicados à alimentação sem glúten em Curitiba estão com funcionamento confirmado nesta semana? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "d9771cd69c8a3343a6809da3214ba07df2b326a17687346dcef71211cf2430ab"
+    },
+    {
+      "id": "I012",
+      "category": "culinaria",
+      "intent": "serviço gastronômico para feriado",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais restaurantes de Belo Horizonte já anunciaram menus e reservas para o próximo feriado nacional? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "bff3857e0b99118a7e0824ea03ca7ebe0cc3c463905cf3148b62e8df3f180246"
+    },
+    {
+      "id": "I013",
+      "category": "culinaria",
+      "intent": "aula de culinária com inscrição aberta",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais aulas presenciais de culinária em São Paulo estão com inscrições abertas para os próximos 30 dias, com preços? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f4fe9f9b1de3a92677fb4346c85efc804ba74a04866d77bc67a7fcf754dd9097"
+    },
+    {
+      "id": "I014",
+      "category": "culinaria",
+      "intent": "curso de panificação próximo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a próxima turma presencial de panificação do Senac em São Paulo com inscrição aberta e qual é o valor anunciado? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "557b1433eb45d29a0b683a480efd1758f218045f2429651078f3f6891ffcde9b"
+    },
+    {
+      "id": "I015",
+      "category": "culinaria",
+      "intent": "aula infantil em data próxima",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Há oficinas de culinária para crianças no próximo fim de semana em São Paulo? Informe idade, preço e inscrição. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "825f95e78cb8199b330e932c11cfe41c353ba678496465ea24a042a47cc16a5c"
+    },
+    {
+      "id": "I016",
+      "category": "culinaria",
+      "intent": "chef convidado em evento atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais jantares com chefs convidados estão anunciados em São Paulo para os próximos 15 dias? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "72a9621cee30e63c632a21dca73eccd6e66e2c14e60a3423b2ac801bb638a5e3"
+    },
+    {
+      "id": "I017",
+      "category": "culinaria",
+      "intent": "concurso gastronômico recente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quem venceu o concurso de melhor queijo no campeonato brasileiro mais recente? Informe o nome e a data do concurso. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "36c3c21fe52815081f09b828331c5c5577a32dc91a296eb0bf059fafd041ee9d"
+    },
+    {
+      "id": "I018",
+      "category": "culinaria",
+      "intent": "lançamento recente de livro culinário",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais livros de culinária em português foram lançados nos últimos 60 dias, com autoria e editora? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "2716f743db6bc17437f1af7b99c781dabdf39e93a8ea67111d93658834700c8f"
+    },
+    {
+      "id": "I019",
+      "category": "culinaria",
+      "intent": "receita publicada nesta semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Encontre uma receita de jantar publicada nesta semana por um portal culinário brasileiro; informe ingredientes, rendimento e data. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "63b3f4af7501b49b2fb15cfbb567afa4d36e074083baa89e65b597de195a8f4c"
+    },
+    {
+      "id": "I020",
+      "category": "culinaria",
+      "intent": "receita sazonal recém-publicada",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Encontre uma receita com frutas da estação publicada nos últimos 30 dias no Panelinha; informe a data e a fonte. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "927d03a3c107f465cf5e644f3112472dac0e5661d2a72a02f299bd1d7ff1ebaa"
+    },
+    {
+      "id": "I021",
+      "category": "culinaria",
+      "intent": "preço atacadista atual de hortaliças",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a cotação mais recente de tomate e batata na CEAGESP? Informe data, unidade e categoria dos produtos. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1f0a3d74df62a5e60553aab268936fe97a668c40b7a3a390e9e525c52f237d68"
+    },
+    {
+      "id": "I022",
+      "category": "culinaria",
+      "intent": "promoção de supermercado vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais ofertas de azeite estão publicadas em encartes online de supermercados de São Paulo com validade incluindo a data de referência? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f831e4f0436a0b5b920d6ee8b113be8b70a7814c6436ecd1fe290ce7944505e4"
+    },
+    {
+      "id": "I023",
+      "category": "culinaria",
+      "intent": "harmonização em evento próximo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais degustações de vinho com harmonização estão agendadas em São Paulo para os próximos sete dias, com valores? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "87374424260a0f38c25b0fcaec78bd000062617bfd38e5d196648b68ab87f897"
+    },
+    {
+      "id": "I024",
+      "category": "culinaria",
+      "intent": "mercado municipal horário atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais são os horários atuais do Mercado Municipal de São Paulo e houve aviso recente de mudança para o próximo fim de semana? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "2056bfe2c73df136ef6533bef8c468a07ae8f75cdd14b309784e94c717729f86"
+    },
+    {
+      "id": "I025",
+      "category": "culinaria",
+      "intent": "restaurante premiado recentemente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual restaurante venceu a categoria de melhor restaurante no prêmio gastronômico paulistano mais recentemente divulgado? Identifique prêmio e data. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "146ef1513bfa397764b336a84d63d2fe7574e850307ad0a8aae7fc8303370b23"
+    },
+    {
+      "id": "I026",
+      "category": "esportes",
+      "intent": "jogos de futebol de hoje",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais jogos de futebol profissional masculino acontecem hoje no Brasil, com horários de Brasília e transmissão anunciada? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "cc3c363608ba21986f05aee36bf85177dc9278eeeee42a1ab4fbb56af9003e93"
+    },
+    {
+      "id": "I027",
+      "category": "esportes",
+      "intent": "partidas da seleção feminina",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo jogo confirmado da seleção brasileira feminina de futebol, com adversário, local e transmissão? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "5042539efe0822fbcd47645e86e11a9f25dc7276be67ec89e302f99935b9d91f"
+    },
+    {
+      "id": "I028",
+      "category": "esportes",
+      "intent": "tabela atual do Brasileirão",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a classificação mais recente do Campeonato Brasileiro Série A e quando foi atualizada? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "463250edb8f6943e833f00fb7a7efd48e02488a7237ba5549aa34e2e83cbb992"
+    },
+    {
+      "id": "I029",
+      "category": "esportes",
+      "intent": "resultado mais recente do Palmeiras",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual foi o resultado do jogo oficial mais recente do Palmeiras e qual é o próximo compromisso confirmado? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "3aefaa21238518b45f04dabf4e33eec4d3fe67b5375987d4a23d456af15f6753"
+    },
+    {
+      "id": "I030",
+      "category": "esportes",
+      "intent": "notícia recente de lesão no Flamengo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a atualização publicada nas últimas 48 horas sobre o departamento médico do Flamengo? Cite a data. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "4a0af60c15843545ac9ce4eadf3891f71ea9eb9168d3771b914338704d8d4e4a"
+    },
+    {
+      "id": "I031",
+      "category": "esportes",
+      "intent": "suspensões para próxima rodada",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais jogadores do Corinthians estão confirmados como suspensos para o próximo jogo oficial? Use informações recentes. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9bf85366ad390da96fd07ad8592a5b476d2b97311a3fbe505821901d56f30fe5"
+    },
+    {
+      "id": "I032",
+      "category": "esportes",
+      "intent": "troca de técnico recente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais clubes da Série A anunciaram mudança de treinador nos últimos sete dias? Se nenhum, declare isso. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f90bd335c0672905029db52fbc7c077b934d7a7f119df9d6a0fcafbd8451e8d3"
+    },
+    {
+      "id": "I033",
+      "category": "esportes",
+      "intent": "ingressos para próximo jogo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. A venda de ingressos para o próximo jogo do São Paulo como mandante está aberta? Informe preços oficiais e canal de venda. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "bd55b71f1bbac235af7290dc2418cc0d246c28e5981b3a22cf91715697e5e3c8"
+    },
+    {
+      "id": "I034",
+      "category": "esportes",
+      "intent": "final de campeonato com agenda vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a agenda atualmente confirmada da final da Copa do Brasil desta temporada, com datas e locais definidos? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "5384a493d02b7fda2ed2a6a2c5afba7180e95d56e8d4e39358a3c295e556f030"
+    },
+    {
+      "id": "I035",
+      "category": "esportes",
+      "intent": "próxima rodada de futebol europeu",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais partidas estão programadas para a próxima rodada da Premier League, com horários convertidos para Brasília? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "e0f41783e6cd148d8510f3df110d8ba637eb1b092f3f3a87946a8ac38d90096d"
+    },
+    {
+      "id": "I036",
+      "category": "esportes",
+      "intent": "rodada da Champions",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais são os próximos jogos confirmados da UEFA Champions League e onde serão transmitidos no Brasil? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "8a4152e64fdbdce47d0601fc2c2e1da0085b1f7844963d08a3c78968670d0c71"
+    },
+    {
+      "id": "I037",
+      "category": "esportes",
+      "intent": "calendário próximo da NBA",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais partidas da NBA estão programadas para amanhã e quais têm transmissão anunciada para o Brasil? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "b32f8ac3810f4f4d900fe4122de9a4da84cdce9d5d759a4b7271ca0088298c2e"
+    },
+    {
+      "id": "I038",
+      "category": "esportes",
+      "intent": "último resultado da WNBA",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual foi o resultado da partida mais recente da WNBA e qual é a situação atual da competição? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "a230e114ae8e7e2af83731e9bd75b05dab25c2bee27d3d3ebf3d308cbe1c083a"
+    },
+    {
+      "id": "I039",
+      "category": "esportes",
+      "intent": "próxima etapa da Fórmula 1",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo Grande Prêmio de Fórmula 1 e quais são os horários oficiais de treinos, classificação e corrida em Brasília? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "dfae3c7a38e6bc2cb0be6fb392d474296acba3fb7aacf1b906d3643687ada978"
+    },
+    {
+      "id": "I040",
+      "category": "esportes",
+      "intent": "classificação vigente da Fórmula 1",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Como estão as classificações de pilotos e construtores da Fórmula 1 após a etapa mais recente? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "73ba09b8c0f24ca2cc9cb5aca8c22d59326e67af7716d7c7cdee5304888a7bd2"
+    },
+    {
+      "id": "I041",
+      "category": "esportes",
+      "intent": "agenda da MotoGP",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a próxima etapa da MotoGP e quando serão a sprint e a corrida principal, no horário de Brasília? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "2e617aba7d184538d094f039a3783ec28f28016e4e8a8a17d36dadd5cdb7d130"
+    },
+    {
+      "id": "I042",
+      "category": "esportes",
+      "intent": "ranking ATP atualizado",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o top 10 do ranking ATP mais recente e qual é a data dessa atualização? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "d54168523fae67ead3153fd36a9ef0f217b06ffa96af7d93b04142ab0edb23cd"
+    },
+    {
+      "id": "I043",
+      "category": "esportes",
+      "intent": "ranking WTA atualizado",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o top 10 do ranking WTA mais recente e qual é a data dessa atualização? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9ceee58e93946f2f78467ad762ca92d526f7ec7c167580b7c59035402202571c"
+    },
+    {
+      "id": "I044",
+      "category": "esportes",
+      "intent": "próximo jogo de tenista brasileiro",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo jogo confirmado de João Fonseca, com adversário, torneio, horário e transmissão se disponíveis? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "43b30b61d37c314c11f3c4f52e544e805bf33d4647d52296eaeef4ab6f88eb75"
+    },
+    {
+      "id": "I045",
+      "category": "esportes",
+      "intent": "calendário de vôlei da semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais partidas da Superliga brasileira de vôlei estão confirmadas para os próximos sete dias, com horários e transmissão? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f68c7a26a071564bccc19b9d1f200999bcddbd63e14bcd26fcf9c1e47e027227"
+    },
+    {
+      "id": "I046",
+      "category": "esportes",
+      "intent": "resultado recente de surfe",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quem venceu a etapa mais recente do circuito mundial de surfe e como ficou a classificação? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "04181f46c4ad53f413c2421d890e1bd82b074b4cc4fef13155a808d674fb6e09"
+    },
+    {
+      "id": "I047",
+      "category": "esportes",
+      "intent": "próximo card do UFC",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o próximo evento do UFC, quais lutas estão confirmadas e onde assistir no Brasil? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "4bf73cf45fe62d1d17e484418e5c107f3bd191034403cd6748819cf732167c45"
+    },
+    {
+      "id": "I048",
+      "category": "esportes",
+      "intent": "corrida de rua com inscrições abertas",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais corridas de rua de 5 ou 10 km em São Paulo nos próximos 30 dias ainda anunciam inscrições abertas e preços? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "40e85f3c5c2603662a72fcf6d7f5e3dfa899b2457e9a8955a7ead9025e2c46d5"
+    },
+    {
+      "id": "I049",
+      "category": "esportes",
+      "intent": "alteração recente de evento esportivo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Houve cancelamento ou mudança de local de algum grande evento esportivo no Brasil nos últimos sete dias? Cite confirmação oficial. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "dbdefaab651adff7bf7129469f2b3eb020bca70c69e45b0b24246dbdc2913f7a"
+    },
+    {
+      "id": "I050",
+      "category": "esportes",
+      "intent": "agenda de esporte paralímpico",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais competições paralímpicas com participação brasileira estão confirmadas para os próximos 15 dias, com fontes atuais? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "312ea5d22b3ab4c9de8fbc3f6cac741466a8a4d4f86bbec9dd231ec764528e30"
+    },
+    {
+      "id": "I051",
+      "category": "clima",
+      "intent": "previsão local de amanhã",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão para São Bernardo do Campo amanhã, incluindo mínima, máxima e probabilidade de chuva? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "a9fa254aa24d8689cde9fe712b56f13ec09dea545d3b5763316f2e5b22edbb68"
+    },
+    {
+      "id": "I052",
+      "category": "clima",
+      "intent": "chuva por hora hoje",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão de chuva por hora para a cidade de São Paulo no restante de hoje? Informe a atualização da fonte. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "93f97d9e6a71d412cbe921e331ade30604de28351001721072dbff4c2ebcef8d"
+    },
+    {
+      "id": "I053",
+      "category": "clima",
+      "intent": "alerta meteorológico vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Há alertas vigentes do INMET para a região do ABC paulista? Informe gravidade, validade e fenômenos previstos. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "e5c64e0228e32c37d8291180af47094b2278881ba691d482134896f8821e72c3"
+    },
+    {
+      "id": "I054",
+      "category": "clima",
+      "intent": "frente fria mais recente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Há previsão atual de chegada de frente fria a São Paulo nos próximos sete dias? Informe a data estimada. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1544b453e22f89f1be2239568c2dd48460f4d3c970d5e25319fd6e6985f0e77f"
+    },
+    {
+      "id": "I055",
+      "category": "clima",
+      "intent": "condição para praia no fim de semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Como está a previsão para Santos neste fim de semana, com chuva, temperatura e vento? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "077d72f5378780c016306293d53b1a07f63d7941b11287c18a0b9d94452fd7ea"
+    },
+    {
+      "id": "I056",
+      "category": "clima",
+      "intent": "condição para trilha em data próxima",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão atual para trilha em Campos do Jordão no próximo sábado de manhã, com chuva e temperatura? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "e4745eff05345e016e8e3a962ab2ac7df60a25bbd98356af67733cc06854e26f"
+    },
+    {
+      "id": "I057",
+      "category": "clima",
+      "intent": "tempo para evento ao ar livre",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. A previsão atual indica chuva em Curitiba no próximo domingo entre 14h e 18h? Informe as incertezas disponíveis. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f0f28b0342e2ed4e04b2f53dfb13f970351dd8969e123b39f163aac110bb46cc"
+    },
+    {
+      "id": "I058",
+      "category": "clima",
+      "intent": "qualidade do ar atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a classificação mais recente da qualidade do ar em São Paulo segundo a CETESB, com horário e estação? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "53d6273049ab05900f2d8ffcc395dee6dfe21584b29328f4ef01f41c76b67151"
+    },
+    {
+      "id": "I059",
+      "category": "clima",
+      "intent": "umidade relativa prevista",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a menor umidade relativa prevista para Brasília amanhã e há alerta meteorológico vigente? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "3ecb2911fecf288ff99255840f9c453d481eddc29f44790eef3a58d172013a2c"
+    },
+    {
+      "id": "I060",
+      "category": "clima",
+      "intent": "índice UV de amanhã",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão de índice ultravioleta para o Rio de Janeiro amanhã, com horário de pico se disponível? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "dd71adca324631956b2a7b0287ae9affd0358258fc146e14ef0fd33a34b99d77"
+    },
+    {
+      "id": "I061",
+      "category": "clima",
+      "intent": "onda de calor vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais estados brasileiros têm alertas oficiais vigentes de onda de calor e até quando? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "b0e7eddb6280bfcdc0ce87ff6069583c40b176d01de9c59721c16e4a25ddaa12"
+    },
+    {
+      "id": "I062",
+      "category": "clima",
+      "intent": "risco de geada próximo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Há previsão de geada na Serra Catarinense para as próximas 72 horas? Cite boletim e validade. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "456ea61cd91e7d9bc887398bede433672aff22e0c36b46a58cc6b2509ed5f24e"
+    },
+    {
+      "id": "I063",
+      "category": "clima",
+      "intent": "risco de temporais próximo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais regiões do Rio Grande do Sul têm previsão oficial de temporais nas próximas 48 horas? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "4c344593b0fd7393b33f63ba887eefcc91820c266c7f4ebfe8b33ff12686105a"
+    },
+    {
+      "id": "I064",
+      "category": "clima",
+      "intent": "acumulado de chuva recente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual foi o acumulado de chuva das últimas 24 horas em Recife segundo a fonte oficial mais recente? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "4960499ce27470bf47dc77543ab96216f0581b120056bdbe4d1cfad8e8214e77"
+    },
+    {
+      "id": "I065",
+      "category": "clima",
+      "intent": "nível atual de rio",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o nível mais recente do Rio Negro em Manaus, com data e comparação com a medição anterior? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "6d8ea50dc7ec7a65a2668b676a535ed1705cab22acb81a66aba32df9f8a9fb4f"
+    },
+    {
+      "id": "I066",
+      "category": "clima",
+      "intent": "boletim atual de reservatórios",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a situação mais recente do Sistema Cantareira, incluindo volume e data do boletim? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1d2c36088baf7f644f372301b751783cdfb221620b7653bddee88a72b252d20c"
+    },
+    {
+      "id": "I067",
+      "category": "clima",
+      "intent": "previsão atual de maré",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais são os horários e alturas de maré previstos para o porto de Santos amanhã, segundo uma tábua atual? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "8fba6276765a951499ec0dae3052edb184b45c0713e15f9c1833f163364e58ff"
+    },
+    {
+      "id": "I068",
+      "category": "clima",
+      "intent": "ressaca vigente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Há avisos vigentes de ressaca no litoral do Rio de Janeiro? Informe o intervalo de validade e a altura prevista das ondas. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "e2297f0c6597c174c3c0a84c657639c72028b740583273cd165ed5415bc2da10"
+    },
+    {
+      "id": "I069",
+      "category": "clima",
+      "intent": "vento para passeio de barco",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão de vento e rajadas para Ilhabela amanhã de manhã, com horário de atualização da fonte? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f95036ab4fba56be75b93312354fdecf52bc681fa73f716fcf05f7799724965c"
+    },
+    {
+      "id": "I070",
+      "category": "clima",
+      "intent": "boletim atual de ciclone",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Há algum ciclone tropical ativo no Atlântico segundo o boletim mais recente do NHC? Informe horário e localização, se houver. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "affb802f8b93e68a44e812e70df187e00fe413e0e344ada0845337a35e75f606"
+    },
+    {
+      "id": "I071",
+      "category": "clima",
+      "intent": "neve prevista em estação de esqui",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão de neve e a situação operacional atual de Cerro Catedral, na Argentina, para os próximos sete dias? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "c4cccda13cb2763e9edb4772f6f3ae8aef9162f4250c542bae6ad9d199e7be8b"
+    },
+    {
+      "id": "I072",
+      "category": "clima",
+      "intent": "tempo no destino internacional",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a previsão de temperatura e chuva em Lisboa para os próximos três dias, com a data da previsão? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f0f03f1cf133d4e32f1cc5a9bc359eb4cd8a582613651f689117646016e0e14d"
+    },
+    {
+      "id": "I073",
+      "category": "clima",
+      "intent": "tendência climática recém-publicada",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o prognóstico climático mais recente do INMET para o próximo trimestre no Sudeste brasileiro? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "14befcfe04587db21aa420684b23b148d4fd523600cd2b675894c7e718d56d1d"
+    },
+    {
+      "id": "I074",
+      "category": "clima",
+      "intent": "situação recente do El Niño",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o diagnóstico mais recente de El Niño ou La Niña publicado pela NOAA? Informe data e probabilidade para os próximos meses. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "00d37ab34e44ec20493b5deac4dee19e44e110abb50f96a717c33463fc91a33d"
+    },
+    {
+      "id": "I075",
+      "category": "clima",
+      "intent": "comparação de previsões atuais",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Compare as previsões atuais do INMET e de outro serviço para a temperatura e chuva em Belo Horizonte amanhã; destaque divergências. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "8c4fda5910f4c2872bac055d0fa55a46bbea65f1343476b325c2766d063ee01c"
+    },
+    {
+      "id": "I076",
+      "category": "entretenimento",
+      "intent": "estreias de cinema da semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais filmes estrearam nos cinemas brasileiros nesta semana? Informe datas e distribuidoras se disponíveis. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9778318538b87ac507779123be4c4b25da8ff0aa2ec5050381c8a584a93bb80e"
+    },
+    {
+      "id": "I077",
+      "category": "entretenimento",
+      "intent": "sessões de cinema hoje",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais sessões de cinema estão anunciadas para hoje no Shopping Metrópole, em São Bernardo do Campo, com horários? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "ebc28eb6f391b7202af22b51aac19e2a9f489461f9ef4c1d69f152541d36734e"
+    },
+    {
+      "id": "I078",
+      "category": "entretenimento",
+      "intent": "lançamentos de streaming da semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais filmes e séries chegaram à Netflix Brasil nesta semana? Cite datas e fontes atuais. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "71f6d7c0488c095931acc2e895491c85fec7b9e5bba70eb86310dd001cd50851"
+    },
+    {
+      "id": "I079",
+      "category": "entretenimento",
+      "intent": "catálogo atual de um filme",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Em quais serviços de streaming no Brasil o filme Duna: Parte Dois está disponível hoje, distinguindo assinatura e aluguel? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "0dc05527e7316957096e43f8ebaecf5c658acb4fe8733d15838fdb1b722ad173"
+    },
+    {
+      "id": "I080",
+      "category": "entretenimento",
+      "intent": "ranking atual de streaming",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o top 10 de filmes da Netflix Brasil mais recentemente publicado e a qual período se refere? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "5ee0935cabe24873cebeb0699fd6fca22b6b5bd6f8148534d5288bfeeeb50f8f"
+    },
+    {
+      "id": "I081",
+      "category": "entretenimento",
+      "intent": "novo episódio de série",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual foi o episódio mais recentemente lançado de Os Anéis de Poder no Brasil e existe data confirmada para o próximo? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "a9ec28d63f4035a0fd5dc24285e1d9794299dd5203664b2461c3541edbb28c3c"
+    },
+    {
+      "id": "I082",
+      "category": "entretenimento",
+      "intent": "agenda de shows do fim de semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais shows de rock estão confirmados na cidade de São Paulo neste fim de semana, com locais e horários? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1a8a6ba2ea6d1bfefb9db43425227a373fd0516385c4acae5e41da3727f00c4b"
+    },
+    {
+      "id": "I083",
+      "category": "entretenimento",
+      "intent": "ingressos para show anunciado",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais shows internacionais no Allianz Parque têm venda oficial de ingressos aberta agora, com datas e preços anunciados? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9c71b9ba79710a0e9586eeeb91e9c45947c27c7277e52a3b1f38c9bd7526c000"
+    },
+    {
+      "id": "I084",
+      "category": "entretenimento",
+      "intent": "line-up atualizado de festival",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é o line-up oficialmente confirmado da próxima edição do Lollapalooza Brasil e quais são suas datas? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "4709878dc131421deb52cecbd405ef709de0d3232f1d3b9114e52cbdf66c95f3"
+    },
+    {
+      "id": "I085",
+      "category": "entretenimento",
+      "intent": "mudança recente em apresentação",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais shows no Brasil tiveram cancelamento ou alteração de data anunciados nos últimos sete dias? Use comunicados oficiais. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1823f16df0ec4de7bc31ab7011fab70a26309d953db5173fa84e4fa263bf3a8a"
+    },
+    {
+      "id": "I086",
+      "category": "entretenimento",
+      "intent": "peça em cartaz nesta semana",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais peças estão em cartaz nesta semana no Teatro Sérgio Cardoso, com horários e preços? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "a910418c2894e4ef45649f779010cbf9357c2dbfdb3f3f51bc61f59faaad0fa4"
+    },
+    {
+      "id": "I087",
+      "category": "entretenimento",
+      "intent": "musical com temporada atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais musicais estão em temporada na cidade de São Paulo neste mês, com teatros e períodos confirmados? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "34b9a4331c5427a1577341d4243ea868606583391d956edb89573d3a67350b73"
+    },
+    {
+      "id": "I088",
+      "category": "entretenimento",
+      "intent": "exposição atual em museu",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais exposições estão abertas hoje no MASP e quais são os horários e preços de visita? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "fd4b5a144e67ecc2017ab923c3189260d0df98d4a2b113355c4d55447571aaff"
+    },
+    {
+      "id": "I089",
+      "category": "entretenimento",
+      "intent": "programação atual de centro cultural",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais atividades gratuitas estão anunciadas pelo Centro Cultural São Paulo para o próximo fim de semana? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "b38f465eece61233a4109a70a60ca48e64ea7a52f159e651ac33d817fc7f4223"
+    },
+    {
+      "id": "I090",
+      "category": "entretenimento",
+      "intent": "programação infantil próxima",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais atividades infantis estão confirmadas no Sesc Santo André neste fim de semana, com idade indicada e inscrição? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9be745a0fe63400b46669f2b752d8981185172f74d6e51d6317b77cc84c8180c"
+    },
+    {
+      "id": "I091",
+      "category": "entretenimento",
+      "intent": "lançamento recente de álbum",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais álbuns de artistas brasileiros foram lançados nos últimos sete dias? Informe artista, título e data. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "2c0f83d9cb7ae97778646aedc15e690380621be6f1c0816d45c4179628b747e2"
+    },
+    {
+      "id": "I092",
+      "category": "entretenimento",
+      "intent": "parada musical atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais músicas lideram o ranking semanal mais recente do Spotify Brasil e qual é o período considerado? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "c34600a15969259bfe73386f704c63da2774503e266a5f80bc9161e5aead7daa"
+    },
+    {
+      "id": "I093",
+      "category": "entretenimento",
+      "intent": "próximo lançamento de videogame",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais jogos com lançamento confirmado para PlayStation 5 estão previstos para os próximos 15 dias no Brasil? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "857608c05f2c3a770209084078b7a715cc12baed07395260cd335824c89ea126"
+    },
+    {
+      "id": "I094",
+      "category": "entretenimento",
+      "intent": "promoção vigente de jogos",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais jogos estão gratuitos ou com promoção de 100% oficialmente vigente na Epic Games Store hoje, e até quando? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "fd6247e0d9fdaa128d987d9247b04db30482b1be5cbca9bee2b14a18f6860b18"
+    },
+    {
+      "id": "I095",
+      "category": "entretenimento",
+      "intent": "atualização recente de videogame",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a atualização mais recente publicada oficialmente para Fortnite e quais novidades foram anunciadas? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "051861f912cd199ac88f7e54470c4d711060146a34fe3fadb7e4a8708f6cc0f9"
+    },
+    {
+      "id": "I096",
+      "category": "entretenimento",
+      "intent": "programação de TV de hoje",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Qual é a programação da TV Cultura para hoje à noite, com horários de Brasília e fonte oficial? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9f3ee324006186656e5bbc1a1ebd262ea5a16be58efa920ad9b8cd613ab1578e"
+    },
+    {
+      "id": "I097",
+      "category": "entretenimento",
+      "intent": "prêmio cinematográfico recente",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais foram os vencedores das principais categorias da edição mais recente do Festival do Rio? Informe a data da premiação. Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "37afb0826b3ae9df311aca85b848589298736a0ebf57de9bf6a910312bb51731"
+    },
+    {
+      "id": "I098",
+      "category": "entretenimento",
+      "intent": "estreia teatral anunciada",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais espetáculos têm estreia anunciada em São Paulo nos próximos 15 dias, com datas e canais oficiais de ingresso? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "9a3b9d6b756943d7dcc5a0236763ba946e18778a60c42e86f9b4367b20571034"
+    },
+    {
+      "id": "I099",
+      "category": "entretenimento",
+      "intent": "evento de cultura pop próximo",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais eventos de cultura pop ou quadrinhos estão confirmados no estado de São Paulo para os próximos 30 dias? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "1cb9897fe374c88a1319dbabe4f530faf68a1dcb89bf80edfd1c0043aec60653"
+    },
+    {
+      "id": "I100",
+      "category": "entretenimento",
+      "intent": "visitação e bilheteria de atração atual",
+      "prompt": "Data de referência: 2026-10-15; fuso America/Sao_Paulo. Quais são os horários de funcionamento e preços de ingresso atuais do Museu do Futebol em São Paulo e há aviso de fechamento nesta semana? Pesquise na web para verificar a informação, cite URLs e datas das fontes e informe se o dado não estiver disponível ou confirmado. Não substitua informação atual por conhecimento de memória.",
+      "prompt_sha256": "f36c95b21499a98c811a51af02247698803d7f387a10737c739ab40795277293"
+    }
+  ]
+}

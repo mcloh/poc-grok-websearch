@@ -14,3 +14,8 @@ evidence/*
 !evidence/RELATORIO.md
 !evidence/validation-summary.json
 !evidence/grok-websearch-models.json
+
+# Resultados brutos do comparativo permanecem locais
+benchmarks/runs/
+benchmarks/intents-source.txt
+benchmarks/plan.json
