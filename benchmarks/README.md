@@ -4,13 +4,21 @@ Consolidação dos testes realizados em **14 e 15/10/2026**, com custos valorado
 
 ## Sumário executivo
 
-O teste principal enviou **as mesmas 100 intenções a dois modelos**, totalizando **200 interações** sobre culinária, esportes, clima e entretenimento. Todas tiveram HTTP 200 e busca web confirmada. O custo variável calculado foi de **US$ 11,243038**, incluindo **US$ 4,795 de websearch**.
+**Decisão recomendada: manter Grok 4.3 como modelo padrão de custo para o chatbot cotidiano com websearch desta POC.** No conjunto avaliado, cada interação custou em média **US$ 0,040643**, contra **US$ 0,071787** no Grok 4.20 non-reasoning: economia de **43,38%**, com busca confirmada nos dois modelos em todas as consultas.
 
-O **Grok 4.3 custou 43,38% menos** que o Grok 4.20 non-reasoning e foi mais barato em **95 dos 100 pares**. Também apresentou menor mediana de tempo neste lote: **10,60 s**, contra **13,55 s**. Os dois modelos têm a mesma tarifa unitária na faixa usada; o comportamento de busca e o volume de contexto explicam a diferença financeira observada.
+A comparação usou **as mesmas 100 intenções por modelo**, distribuídas entre culinária, esportes, clima e entretenimento. A tabela abaixo apresenta o custo unitário observado, incluindo os tokens consumidos durante o uso das ferramentas e a cobrança do websearch.
 
-Incluindo as validações anteriores da POC e a triagem dos sete identificadores Grok testados, o inventário financeiro reúne **210 chamadas com uso preservado**, **7.166.807 tokens** e **981 chamadas de websearch**, por **US$ 11,505274**. Esse total histórico é distinto dos US$ 11,243038 do benchmark de 200 interações.
+| Indicador por interação | Grok 4.20 non-reasoning | Grok 4.3 |
+|---|---:|---:|
+| Tokens médios: entrada + saída | 49.082,23 | 21.473,81 |
+| Chamadas médias de websearch | 6,47 | 3,12 |
+| Custo médio dos tokens — USD | 0,039437 | 0,025043 |
+| Custo médio do websearch — USD | 0,032350 | 0,015600 |
+| **Custo médio total — USD** | 0,071787 | 0,040643 |
 
-A conclusão sustentada pelos dados é de **menor custo operacional do Grok 4.3 entre os dois finalistas neste conjunto com websearch**. Não foi realizada pontuação de correção factual ou qualidade editorial, nem o lote de 100 intenções foi executado nos demais modelos.
+O resultado é explicado pelo comportamento de execução: embora as tarifas por token dos dois candidatos sejam iguais, o Grok 4.3 fez menos buscas e processou menos contexto. Ele custou menos em **95 dos 100 pares** e apresentou mediana de resposta de **10,60 s**, ante **13,55 s** do 4.20 non-reasoning.
+
+**Investimento no experimento:** US$ 11,243038 nas 200 interações do lote principal. O histórico completo, incluindo a POC e a triagem de todos os identificadores, soma US$ 11,505274 em 210 chamadas. Somente o lote pareado sustenta a comparação econômica entre os dois finalistas. A qualidade factual das respostas ainda não foi pontuada.
 
 ## Escopo e evidências
 
@@ -55,7 +63,7 @@ Fontes: [lista de preços Oracle](https://www.oracle.com/cloud/price-list/), [pr
 
 A tabela abaixo consolida financeiramente as três etapas. Os tamanhos de amostra são diferentes; a média histórica é descritiva e **não deve ser usada como ranking entre os sete identificadores**.
 
-| Identificador OCI | Chamadas | Custo dos tokens¹ USD | Websearch USD | Total USD | Média histórica USD |
+| Identificador OCI | Chamadas | Custo dos tokens¹ USD | Websearch USD | Total USD | Média histórica USD/interação |
 |---|---:|---:|---:|---:|---:|
 | `xai.grok-4.20-0309-non-reasoning` | 1 | 0,011960 | 0,010000 | 0,021960 | 0,021960 |
 | `xai.grok-4.20-0309-reasoning` | 1 | 0,013099 | 0,005000 | 0,018099 | 0,018099 |
@@ -69,7 +77,7 @@ A tabela abaixo consolida financeiramente as três etapas. Os tamanhos de amostr
 
 ### Comparação controlada — 100 intenções por modelo
 
-| Modelo | Total USD | Média USD | Mediana USD | P95 USD | Websearch USD | Mediana de tempo (s) |
+| Modelo | Total USD | Média USD/interação | Mediana USD/interação | P95 USD/interação | Websearch USD | Mediana de tempo (s) |
 |---|---:|---:|---:|---:|---:|---:|
 | `xai.grok-4.20-non-reasoning` | 7,178728 | 0,071787 | 0,069751 | 0,094497 | 3,235000 | 13,55 |
 | `xai.grok-4.3` | 4,064310 | 0,040643 | 0,038978 | 0,056172 | 1,560000 | 10,60 |
@@ -83,7 +91,58 @@ A economia do Grok 4.3 neste lote foi de **US$ 3,114417 (43,38%)**. O P95 é o p
 | Clima | 1,818597 | 0,966295 | 46,87% |
 | Entretenimento | 1,802101 | 1,067563 | 40,76% |
 
+## Consumo e custo médios por interação — lote de 100 intenções
+
+As médias desta seção usam **100 interações por modelo**, sem misturar os testes pontuais anteriores. O consumo inclui todas as etapas internas reportadas no `usage` da resposta OCI; não corresponde apenas ao tamanho do prompt digitado ou ao texto final apresentado ao usuário.
+
+### Tokens e ferramentas por interação
+
+| Métrica média por interação | Grok 4.20 non-reasoning | Grok 4.3 |
+|---|---:|---:|
+| Entrada total, cache incluído | 48.154,53 | 20.327,28 |
+| Entrada atendida por cache¹ | 21.976,32 | 3.078,40 |
+| Entrada sem cache | 26.178,21 | 17.248,88 |
+| Saída total, raciocínio incluído | 927,70 | 1.146,53 |
+| Raciocínio reportado² | 0,00 | 690,02 |
+| **Total: entrada + saída** | **49.082,23** | **21.473,81** |
+| Chamadas de websearch | 6,47 | 3,12 |
+
+¹ Cache é parte da entrada, não consumo adicional. ² Raciocínio é parte da saída, não uma parcela somada novamente. A diferença de consumo vem principalmente do volume de contexto recuperado e do número de buscas realizadas.
+
+### Composição do custo médio por interação
+
+| Componente — USD/interação | Grok 4.20 non-reasoning | Grok 4.3 |
+|---|---:|---:|
+| Tokens de entrada sem cache | 0,03272276 | 0,02156110 |
+| Tokens de entrada em cache | 0,00439526 | 0,00061568 |
+| Tokens de saída, incluindo raciocínio | 0,00231925 | 0,00286632 |
+| Chamadas de websearch | 0,03235000 | 0,01560000 |
+| **Total por interação** | 0,07178728 | 0,04064310 |
+
+**Leitura financeira:** menor tarifa por token não foi o fator de diferenciação, pois os dois candidatos tinham os mesmos preços. O Grok 4.3 consumiu mais tokens de saída, mas a redução de entrada e de buscas mais que compensou esse componente. Os valores são custos calculados do uso medido a preço de lista, e não valores conciliados de uma fatura.
+
 ## Metodologia
+
+### Por que Grok 4.3 e Grok 4.20 non-reasoning receberam as 100 intenções
+
+A escolha foi feita **antes da execução do lote completo**, para responder a uma pergunta de negócio: **qual dos candidatos de menor tarifa consegue atender consultas cotidianas com busca web pelo menor custo total por interação?** Os dois já tinham demonstrado busca nativa funcionando pela OCI e estavam na mesma faixa de preço: US$ 1,25 por milhão de tokens de entrada, US$ 0,20 de cache e US$ 2,50 de saída.
+
+| Candidato | Motivo para entrar no lote completo | Hipótese avaliada |
+|---|---|---|
+| **Grok 4.3** | Era o padrão funcional da POC, já validado no REST público, e tinha a tarifa base mais baixa entre as famílias testadas, empatada com 4.20. | Medir o custo de manter o padrão da aplicação nas 100 consultas cotidianas, incluindo busca e contexto. |
+| **Grok 4.20 non-reasoning** | Representava a alternativa focada em respostas diretas, sem tokens de raciocínio reportados na triagem. Na amostra inicial respondeu em 3,22–3,62 s, ante 9,24 s do 4.3, com a mesma tarifa unitária. | Testar se a rapidez e a ausência de raciocínio reportado se converteriam em menor consumo e menor custo da interação completa. |
+
+A triagem inicial tinha uma consulta por identificador. Esses números justificaram uma **hipótese de seleção**, não uma conclusão sobre desempenho ou qualidade. No lote ampliado, a vantagem inicial de tempo do 4.20 non-reasoning não se repetiu na mediana, e ele fez mais buscas; é justamente esse tipo de diferença que o experimento buscava medir.
+
+Os demais identificadores permaneceram na triagem por estes critérios de escopo:
+
+- **Grok 4.6 e 4.7:** tinham tarifas superiores — US$ 2,00 de entrada, US$ 0,50 de cache e US$ 6,00 de saída por milhão de tokens. Para o primeiro comparativo de consultas cotidianas, priorizaram-se os candidatos da faixa de menor custo. Não foi testado se uma eventual melhora de qualidade desses modelos compensaria a diferença de tarifa.
+- **Grok 4.20 reasoning:** o recorte inicial priorizou recuperação de informação atual e resposta direta, em vez de raciocínio complexo em múltiplas etapas. A variante permaneceu como compatibilidade confirmada, sem participar da disputa financeira de 100 intenções. Isso não demonstra inadequação ou inferioridade dessa variante.
+- **Identificadores com e sem `0309`:** os aliases apontavam para as mesmas versões na documentação consultada. Repetir as 100 intenções nos dois nomes não acrescentaria uma configuração independente ao estudo; foi utilizado o alias `xai.grok-4.20-non-reasoning`.
+
+Portanto, a conclusão de menor custo é **entre os dois candidatos selecionados**, não um ranking geral dos sete identificadores nem uma afirmação de qualidade equivalente.
+
+### Desenho e execução
 
 1. **Triagem de compatibilidade:** uma consulta sobre notícia atual por identificador, executando a rota `/api/chat` em processos locais isolados via FastAPI TestClient com inferência OCI real. HTTP 200 isolado não foi suficiente para confirmar busca. Os parâmetros e o runtime dessa etapa estão na [matriz original](../evidence/grok-websearch-models.json).
 2. **Conjunto pareado:** seleção prévia de 100 intenções, com 25 de cada tema. As perguntas exigem informação atual, como previsão do tempo, agenda, preços, resultados e disponibilidade. Os [prompts e hashes](intents.json) e a [lista legível](INTENCOES.md) foram congelados com referência a 15/10/2026.
@@ -123,6 +182,22 @@ O custo corresponde ao **uso medido valorado a preço de lista**, sem impostos, 
 | **Total** | **6.949.610** | **2.527.488** | **217.197** | **76.530** | **7.166.807** | **981** |
 
 ² A coluna entrada já inclui cache. ³ A coluna saída já inclui raciocínio. **Total de tokens = entrada + saída**. Os sete testes pontuais e as três validações da POC não são uma amostra equivalente ao lote pareado.
+
+### Médias unitárias de todos os identificadores — histórico
+
+Este quadro atende à visão unitária do inventário completo. Ele mistura etapas com perguntas e tamanhos de amostra distintos: **não usar seus valores como comparação controlada ou ranking**. Para os modelos com uma única chamada, a média é apenas o valor daquela consulta. As médias dos finalistas nesta tabela incluem as validações anteriores; por isso diferem das médias do lote principal de 100 intenções.
+
+| Identificador OCI | Interações na amostra | Tokens médios/interação | Buscas médias/interação | USD médios/interação |
+|---|---:|---:|---:|---:|
+| `xai.grok-4.20-0309-non-reasoning` | 1 | 10.232,00 | 2,00 | 0,02195980 |
+| `xai.grok-4.20-0309-reasoning` | 1 | 9.203,00 | 1,00 | 0,01809870 |
+| `xai.grok-4.20-non-reasoning` | 101 | 48.706,84 | 6,43 | 0,07130587 |
+| `xai.grok-4.20-reasoning` | 1 | 9.413,00 | 2,00 | 0,02260480 |
+| `xai.grok-4.3` | 104 | 21.069,23 | 3,11 | 0,04004560 |
+| `xai.grok-4.6` | 1 | 9.590,00 | 1,00 | 0,02577200 |
+| `xai.grok-4.7` | 1 | 17.778,00 | 3,00 | 0,05020400 |
+
+Tokens totais de entrada + saída, já incluindo cache e raciocínio nos respectivos contadores.
 
 ### Lote pareado isolado — 200 interações
 
