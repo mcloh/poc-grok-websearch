@@ -177,11 +177,15 @@ Na execução original, o REST retornou HTTP 200 em 36,12 segundos, com duas bus
 
 Consulte o [relatório](evidence/RELATORIO.md) e o [resumo estruturado](evidence/validation-summary.json). Apenas evidências selecionadas são compartilhadas; credenciais, dados administrativos OCI, respostas brutas, cópias integrais das fontes e scripts específicos da infraestrutura ficam locais.
 
-## Comparativo de 100 intenções cotidianas — executado em 15/10/2026
+## Benchmark em dois turnos — executado em 15/10/2026
 
 Veja o [sumário executivo e o consolidado de todos os modelos testados](benchmarks/README.md).
 
-Uma [auditoria retrospectiva de seleção](benchmarks/screening/README.md) acrescentou as mesmas 12 perguntas em cada um dos sete IDs (84 respostas). O corte operacional ponderado indicou `grok-4.3`, `grok-4.20-non-reasoning`. A escolha original dos dois modelos do lote de 100 perguntas foi heurística e antecedeu essa auditoria.
+**1º turno — seleção:** as mesmas 12 perguntas nos sete IDs, três por tema, com corte de 70/100 e pesos de 50% custo, 30% busca operacional confiável e 20% latência. A [apuração](benchmarks/screening/README.md) classifica Grok 4.3 (97,15) e Grok 4.20 non-reasoning (73,39), agrupando aliases para não duplicar vagas.
+
+**2º turno — comparação completa:** as mesmas 100 intenções nos dois finalistas, para medir consumo de tokens, buscas e custo efetivo por interação. Grok 4.3 apresenta economia de 43,38% nesse confronto.
+
+A ordem dos turnos organiza a leitura: a seleção calculada foi executada posteriormente como auditoria e confirmou a dupla original. A [nota metodológica](benchmarks/README.md#nota-sobre-a-ordem-de-apresentação) registra a cronologia real.
 
 Foi executada a mesma lista de 100 intenções nos dois candidatos de uso geral, Grok 4.3 e Grok 4.20 non-reasoning: 25 de culinária, 25 de esportes, 25 de clima e 25 de entretenimento por modelo. As 200 interações tiveram HTTP 200 e busca confirmada, sem retries ou duplicação de chamadas. Os hashes do payload compartilhado coincidiram nos 100 pares.
 

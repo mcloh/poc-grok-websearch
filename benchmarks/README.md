@@ -4,11 +4,18 @@ Consolidação dos testes realizados em **14 e 15/10/2026**, com custos valorado
 
 ## Sumário executivo
 
-**A auditoria retrospectiva com os sete IDs selecionou Grok 4.3 e Grok 4.20 non-reasoning, pelo corte operacional de 70/100.** A escolha original de Grok 4.3 e 4.20 non-reasoning foi heurística. O [pré-teste posterior de 12 perguntas por ID](screening/README.md) estabelece uma comparação uniforme e registra sua cronologia e limitações.
+**Benchmark em dois turnos: Grok 4.3 e Grok 4.20 non-reasoning são os finalistas; Grok 4.3 vence a comparação de custo do conjunto completo.** Como em uma eleição, o 1º turno compara todos os candidatos sob a mesma regra; o 2º turno concentra a análise nos dois classificados.
+
+| Turno | Disputa | Critério | Resultado |
+|---|---|---|---|
+| **1º — seleção dos finalistas** | 12 perguntas iguais × sete IDs; três por tema | Nota ponderada: 50% custo, 30% busca operacional confiável, 20% latência; corte 70/100 | Grok 4.3: **97,15**; Grok 4.20 non-reasoning: **73,39** |
+| **2º — comparação completa** | 100 perguntas iguais × dois finalistas; 25 por tema | Custo total por interação, incluindo tokens e websearch | Grok 4.3: **US$ 0,040643/interação**, economia de **43,38%** |
+
+A [apuração do 1º turno](screening/README.md) explica a classificação da dupla; o 2º turno detalha sua comparação na massa completa. A vitória é econômica, sob a configuração e os casos avaliados; não é uma nota de qualidade factual.
 
 A confirmação da segunda vaga depende do cache observado: no cenário contábil secundário sem desconto de cache, somente Grok 4.3 passa o corte. O teste não pontua qualidade factual.
 
-No lote anterior de 100 intenções, Grok 4.3 custou **US$ 0,040643 por interação**, contra **US$ 0,071787** no 4.20 non-reasoning: economia de **43,38%** entre esses dois candidatos. Esse resultado não estabelece superioridade perante todos os modelos.
+No 2º turno, com 100 intenções por finalista, Grok 4.3 custou **US$ 0,040643 por interação**, contra **US$ 0,071787** no 4.20 non-reasoning: economia de **43,38%** entre esses dois candidatos. Esse resultado não estabelece superioridade perante todos os modelos.
 
 A comparação usou **as mesmas 100 intenções por modelo**, distribuídas entre culinária, esportes, clima e entretenimento. A tabela abaixo apresenta o custo unitário observado, incluindo os tokens consumidos durante o uso das ferramentas e a cobrança do websearch.
 
@@ -22,7 +29,7 @@ A comparação usou **as mesmas 100 intenções por modelo**, distribuídas entr
 
 O resultado é explicado pelo comportamento de execução: embora as tarifas por token dos dois candidatos sejam iguais, o Grok 4.3 fez menos buscas e processou menos contexto. Ele custou menos em **95 dos 100 pares** e apresentou mediana de resposta de **10,60 s**, ante **13,55 s** do 4.20 non-reasoning.
 
-**Investimento conhecido:** US$ 20,963443 em **294 respostas com uso**, incluindo US$ 9,458169 nas 84 respostas da auditoria. Essa etapa exigiu 91 tentativas HTTP, com sete rejeições de infraestrutura sem custo determinável por ausência de `usage`. A qualidade factual ainda não foi pontuada.
+**Investimento conhecido:** US$ 20,963443 em **294 respostas com uso**, incluindo US$ 9,458169 nas 84 respostas do 1º turno. Essa etapa exigiu 91 tentativas HTTP, com sete rejeições de infraestrutura sem custo determinável por ausência de `usage`. A qualidade factual ainda não foi pontuada.
 
 ## Escopo e evidências
 
@@ -30,8 +37,8 @@ O resultado é explicado pelo comportamento de execução: embora as tarifas por
 |---|---|---:|---|
 | Validação da POC | 14/10/2026 | 3 | Confirmar rotas Responses, REST público e busca com Grok 4.3 |
 | Matriz de compatibilidade | 14/10/2026 | 7 | Uma consulta de notícia por identificador Grok |
-| Benchmark pareado | 15/10/2026 | 200 | As mesmas 100 intenções em Grok 4.20 non-reasoning e Grok 4.3 |
-| Auditoria retrospectiva | 15/10/2026 | 84 respostas / 91 tentativas HTTP | Mesmas 12 perguntas nos sete IDs, três por tema; corte ponderado |
+| 1º turno — seleção | 15/10/2026 | 84 respostas / 91 tentativas HTTP | Mesmas 12 perguntas nos sete IDs, três por tema; corte ponderado |
+| 2º turno — comparação completa | 15/10/2026 | 200 | As mesmas 100 intenções em Grok 4.20 non-reasoning e Grok 4.3 |
 | **Total com uso preservado** | **14–15/10/2026** | **294** | **Inventário financeiro, não uma única amostra comparável** |
 
 Os sete identificadores incluem os aliases `xai.grok-4.20-reasoning` e `xai.grok-4.20-non-reasoning`, que, na documentação consultada, apontam para as versões `0309` correspondentes. Portanto, sete identificadores testados não representam sete configurações independentes de modelo. Voice Agent e Multi-Agent não integram este estudo.
@@ -63,8 +70,8 @@ Fontes: [lista de preços Oracle](https://www.oracle.com/cloud/price-list/), [pr
 |---|---|---|---|---|---|
 | Validação da POC | 0,023511 | 0,002534 | 0,008370 | 0,045000 | 0,079416 |
 | Matriz de compatibilidade | 0,091164 | 0,003290 | 0,023366 | 0,065000 | 0,182820 |
-| Benchmark pareado | 5,428386 | 0,501094 | 0,518558 | 4,795000 | 11,243038 |
-| Auditoria retrospectiva | 4,575965 | 1,239002 | 0,953202 | 2,690000 | 9,458169 |
+| 1º turno — seleção | 4,575965 | 1,239002 | 0,953202 | 2,690000 | 9,458169 |
+| 2º turno — comparação completa | 5,428386 | 0,501094 | 0,518558 | 4,795000 | 11,243038 |
 | **Total** | 10,119027 | 1,745920 | 1,503496 | 7,595000 | 20,963443 |
 
 ### Todos os identificadores testados
@@ -83,7 +90,21 @@ Inventário das quatro etapas, com amostras diferentes: **as médias históricas
 
 O [consolidado atual](screening/financial-consolidation.json) preserva valores completos; o [baseline de 210 respostas](financial-consolidation.json) continua intacto. Sete rejeições da auditoria sem `usage` estão fora dos custos conhecidos, sem serem tratadas como custo zero.
 
-### Comparação controlada — 100 intenções por modelo
+### 1º turno — apuração das cinco configurações
+
+Os sete IDs representam cinco configurações, pois os aliases com e sem `0309` são agrupados. As notas dos aliases são promediadas; cada ID precisa ter 12 custos conhecidos e ao menos 11 buscas confiáveis. As duas maiores notas entre as configurações aprovadas ocupam as vagas.
+
+| Configuração | Nota /100 | Corte >=70 | Classificação |
+|---|---:|---|---|
+| Grok 4.3 | 97,15 | Aprovado | **Finalista** |
+| Grok 4.20 non-reasoning | 73,39 | Aprovado | **Finalista** |
+| Grok 4.20 reasoning | 70,08 | Aprovado | Terceiro colocado |
+| Grok 4.6 | 45,51 | Abaixo do corte | Fora das duas vagas |
+| Grok 4.7 | 43,34 | Abaixo do corte | Fora das duas vagas |
+
+Grok 4.20 reasoning passou o corte, mas teve nota menor que os dois primeiros. Seu custo médio foi inferior ao do non-reasoning; sua maior latência reduziu a pontuação. O [relatório do 1º turno](screening/README.md) apresenta os sete IDs, consumo e custo unitário, além da sensibilidade ao cache e aos casos da amostra.
+
+### 2º turno — comparação controlada com 100 intenções por finalista
 
 | Modelo | Total USD | Média USD/interação | Mediana USD/interação | P95 USD/interação | Websearch USD | Mediana de tempo (s) |
 |---|---:|---:|---:|---:|---:|---:|
@@ -99,7 +120,7 @@ A economia do Grok 4.3 neste lote foi de **US$ 3,114417 (43,38%)**. O P95 é o p
 | Clima | 1,818597 | 0,966295 | 46,87% |
 | Entretenimento | 1,802101 | 1,067563 | 40,76% |
 
-## Consumo e custo médios por interação — lote de 100 intenções
+## 2º turno — consumo e custo médios por interação
 
 As médias desta seção usam **100 interações por modelo**, sem misturar os testes pontuais anteriores. O consumo inclui todas as etapas internas reportadas no `usage` da resposta OCI; não corresponde apenas ao tamanho do prompt digitado ou ao texto final apresentado ao usuário.
 
@@ -131,30 +152,23 @@ As médias desta seção usam **100 interações por modelo**, sem misturar os t
 
 ## Metodologia
 
-### Auditoria posterior da seleção
+### 1º turno — regras de seleção
 
-A seleção inicial abaixo explica uma decisão histórica de escopo, sem corte equitativo entre todos os modelos. Após questionamento metodológico, foram feitas 84 novas inferências: as mesmas 12 perguntas, três por tema, nos sete IDs. Pesos, corte, gates e agrupamento de aliases foram congelados antes dessas chamadas. O [relatório da auditoria](screening/README.md) apresenta notas, variabilidade, exceções operacionais e a dupla indicada para uma próxima comparação completa. A auditoria não transforma o desenho inicial em prospectivo.
+Cada um dos sete IDs recebe as mesmas 12 perguntas, três por tema. Cada tema pesa 25%. Por pergunta, a eficiência de custo é o menor custo confiável dividido pelo custo do ID; a eficiência de tempo usa a mesma razão com a latência. A nota combina **50% custo, 30% busca confiável e 20% latência**. Respostas não confiáveis recebem zero nos três componentes.
 
-### Por que Grok 4.3 e Grok 4.20 non-reasoning receberam as 100 intenções
+A elegibilidade exige 12 custos conhecidos e ao menos 11 buscas confiáveis por ID; o corte é 70/100 por configuração. Busca confiável exige HTTP 200, busca concluída com fontes e citações, texto final não vazio e ausência de truncamento. Aliases são agrupados antes da seleção das duas vagas. Pesos, corte, amostra e preços foram congelados antes das inferências desta etapa, no [protocolo do 1º turno](screening/PROTOCOLO.md).
 
-A escolha foi feita **antes da execução do lote completo**, para responder a uma pergunta de negócio: **qual dos candidatos de menor tarifa consegue atender consultas cotidianas com busca web pelo menor custo total por interação?** Os dois já tinham demonstrado busca nativa funcionando pela OCI e estavam na mesma faixa de preço: US$ 1,25 por milhão de tokens de entrada, US$ 0,20 de cache e US$ 2,50 de saída.
+### Passagem ao 2º turno — por que esta dupla
 
-| Candidato | Motivo para entrar no lote completo | Hipótese avaliada |
-|---|---|---|
-| **Grok 4.3** | Era o padrão funcional da POC, já validado no REST público, e tinha a tarifa base mais baixa entre as famílias testadas, empatada com 4.20. | Medir o custo de manter o padrão da aplicação nas 100 consultas cotidianas, incluindo busca e contexto. |
-| **Grok 4.20 non-reasoning** | Representava a alternativa focada em respostas diretas, sem tokens de raciocínio reportados na triagem. Na amostra inicial respondeu em 3,22–3,62 s, ante 9,24 s do 4.3, com a mesma tarifa unitária. | Testar se a rapidez e a ausência de raciocínio reportado se converteriam em menor consumo e menor custo da interação completa. |
+Grok 4.3 e Grok 4.20 non-reasoning são as duas configurações com maior nota entre as aprovadas no 1º turno. Ambos oferecem busca nativa funcional via OCI e têm a mesma tarifa base. O 2º turno compara o custo efetivo das mesmas 100 consultas, permitindo verificar quanto o comportamento de busca, o contexto recuperado e a saída gerada alteram a conta final.
 
-A triagem inicial tinha uma consulta por identificador. Esses números justificaram uma **hipótese de seleção**, não uma conclusão sobre desempenho ou qualidade. No lote ampliado, a vantagem inicial de tempo do 4.20 non-reasoning não se repetiu na mediana, e ele fez mais buscas; é justamente esse tipo de diferença que o experimento buscava medir.
+A nota do 1º turno serve à classificação das vagas; o resultado financeiro do 2º turno vem de uma amostra maior. As notas de 12 casos não são extrapoladas para os modelos que não receberam as 100 intenções.
 
-Os demais identificadores permaneceram na triagem por estes critérios de escopo:
+### Nota sobre a ordem de apresentação
 
-- **Grok 4.6 e 4.7:** tinham tarifas superiores — US$ 2,00 de entrada, US$ 0,50 de cache e US$ 6,00 de saída por milhão de tokens. Para o primeiro comparativo de consultas cotidianas, priorizaram-se os candidatos da faixa de menor custo. Não foi testado se uma eventual melhora de qualidade desses modelos compensaria a diferença de tarifa.
-- **Grok 4.20 reasoning:** o recorte inicial priorizou recuperação de informação atual e resposta direta, em vez de raciocínio complexo em múltiplas etapas. A variante permaneceu como compatibilidade confirmada, sem participar da disputa financeira de 100 intenções. Isso não demonstra inadequação ou inferioridade dessa variante.
-- **Identificadores com e sem `0309`:** os aliases apontavam para as mesmas versões na documentação consultada. Repetir as 100 intenções nos dois nomes não acrescentaria uma configuração independente ao estudo; foi utilizado o alias `xai.grok-4.20-non-reasoning`.
+Os turnos seguem a ordem lógica de leitura. Na execução real, o lote de 100 intenções veio primeiro, com escolha heurística da dupla; a seleção calculada foi realizada depois, como auditoria retrospectiva, e confirmou os mesmos finalistas. Portanto, o 1º turno fundamenta a classificação apresentada, mas não causou historicamente a escolha do lote completo. Os protocolos, manifestos e registros preservam essa cronologia.
 
-Portanto, a conclusão de menor custo é **entre os dois candidatos selecionados**, não um ranking geral dos sete identificadores nem uma afirmação de qualidade equivalente.
-
-### Desenho e execução
+### 2º turno — desenho e execução
 
 1. **Triagem de compatibilidade:** uma consulta sobre notícia atual por identificador, executando a rota `/api/chat` em processos locais isolados via FastAPI TestClient com inferência OCI real. HTTP 200 isolado não foi suficiente para confirmar busca. Os parâmetros e o runtime dessa etapa estão na [matriz original](../evidence/grok-websearch-models.json).
 2. **Conjunto pareado:** seleção prévia de 100 intenções, com 25 de cada tema. As perguntas exigem informação atual, como previsão do tempo, agenda, preços, resultados e disponibilidade. Os [prompts e hashes](intents.json) e a [lista legível](INTENCOES.md) foram congelados com referência a 15/10/2026.
@@ -226,7 +240,7 @@ As **959 chamadas de busca** custaram **US$ 4,795**, ou **42,65%** do custo do l
 
 ## Limitações e conclusão
 
-**Corte operacional da auditoria:** Grok 4.3 e Grok 4.20 non-reasoning. A amostra confirma os dois candidatos originais segundo a regra operacional congelada. O lote anterior de 100 perguntas continua demonstrando menor custo do Grok 4.3 frente ao 4.20 non-reasoning; os demais modelos não receberam esse lote completo.
+**1º turno:** Grok 4.3 e Grok 4.20 non-reasoning ocupam as duas vagas pelo corte operacional. **2º turno:** Grok 4.3 apresenta o menor custo nas 100 perguntas, com economia de 43,38% frente ao outro finalista. Os demais modelos não receberam esse lote completo.
 
 O [pré-teste retrospectivo](screening/README.md) amplia a evidência para todos os sete IDs, com 12 perguntas iguais, mas não sustenta extrapolação para 100 intenções nem ranking de qualidade factual. Aliases são agrupados em cinco configurações para a seleção das vagas.
 

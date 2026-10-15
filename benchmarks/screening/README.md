@@ -1,20 +1,20 @@
-# Auditoria retrospectiva da seleção Grok via OCI
+# 1º turno — seleção dos finalistas Grok via OCI
 
 ## Sumário executivo
 
-**Resultado do corte: Grok 4.3 e Grok 4.20 non-reasoning.** A amostra confirma os dois candidatos originais segundo a regra operacional congelada. A seleção anterior foi uma hipótese heurística; o lote de 100 intenções antecedeu esta auditoria e não passa a ser prospectivo por causa dela.
+**Classificados para a comparação do 2º turno: Grok 4.3 e Grok 4.20 non-reasoning**, com notas de **97,15** e **73,39**. O 1º turno compara os sete identificadores sob as mesmas regras e reserva as duas vagas para as configurações aprovadas com maior pontuação. O [2º turno](../README.md) apresenta a comparação das 100 intenções entre os finalistas.
 
 Foram avaliadas **12 novas respostas por identificador**, com as mesmas perguntas e três casos de cada tema: culinária, esportes, clima e entretenimento. As 84 respostas exigiram 91 tentativas HTTP: 7 rejeições de quota compartilhada foram recuperadas uma vez, com preservação das evidências. O custo dessas rejeições sem `usage` permanece desconhecido.
 
 **Custo conhecido desta etapa: US$ 9,458169**, com tokens e websearch incluídos. **Acumulado conhecido do projeto: US$ 20,963443 em 294 respostas**, frente ao teto autorizado de US$ 50. Valores calculados a preço de lista Oracle; não são conciliação de fatura.
 
-## Critérios de corte
+## Regras do 1º turno — corte e duas vagas
 
 Os critérios foram congelados antes das novas inferências: **50% eficiência de custo total, 30% confiabilidade operacional da busca e 20% eficiência de latência**. Cada tema pesa 25%, com três casos igualmente ponderados. Para cada pergunta, eficiência é a razão entre o melhor custo/tempo confiável e o custo/tempo do identificador. Falhas operacionais recebem zero em todos os componentes.
 
 O corte é **70/100**, com **12 custos conhecidos e ao menos 11 buscas confiáveis por ID**. Busca confiável exige HTTP 200, busca concluída com fontes e citações, texto final e ausência de truncamento; **não mede correção factual**. Os sete IDs foram testados, mas representam cinco configurações: aliases com e sem `0309` têm suas notas promediadas e não ocupam duas vagas.
 
-## Resultado dos sete identificadores
+## Apuração dos sete identificadores
 
 | ID OCI | Nota /100 | Busca confiável | Passa corte | Tokens/interação | Buscas/interação | USD/interação | Mediana s |
 |---|---|---|---|---|---|---|---|
@@ -61,6 +61,10 @@ A frequência no bootstrap descreve a sensibilidade a 2.000 reamostragens paread
 
 Preços e SKUs estão em [oracle-prices.json](oracle-prices.json), incluindo as faixas curta e longa. Websearch custa US$ 5 por 1.000 chamadas. Cache e raciocínio não são somados novamente aos tokens totais. O acumulado de todas as etapas e sete IDs consta no [consolidado de 294 respostas](financial-consolidation.json); o [baseline anterior de 210](../financial-consolidation.json) foi preservado.
 
+## Nota sobre a ordem de apresentação
+
+“1º turno” identifica a etapa lógica de seleção. Na cronologia real, esta amostra foi executada depois do lote completo, como auditoria retrospectiva, e confirmou a dupla escolhida inicialmente por heurística. A apresentação em turnos não implica que essa apuração tenha causado a escolha original.
+
 ## Metodologia, exceções e limites
 
 - Amostra determinística por hash dos prompts, sem usar métricas financeiras na função de seleção. Os 12 casos saem do dataset anterior de 100; não são holdout. Os dois candidatos originais já haviam recebido essas perguntas.
@@ -73,9 +77,9 @@ Preços e SKUs estão em [oracle-prices.json](oracle-prices.json), incluindo as 
 
 Nesse cenário secundário, apenas `grok-4.3` supera o corte. A segunda vaga depende do desconto de cache observado e não se mantém nessa hipótese contábil; isso restringe a robustez da confirmação da dupla.
 
-## Conclusão e implicação
+## Passagem ao 2º turno
 
-A amostra confirma os dois candidatos originais segundo a regra operacional congelada. A auditoria dá suporte operacional à dupla, sob estes pesos e nesta amostra. A economia de 43,38% do Grok 4.3 no lote anterior continua válida apenas contra Grok 4.20 non-reasoning. Não se pode extrapolar o desempenho dos demais modelos para 100 intenções nem afirmar qualidade factual equivalente.
+O corte ponderado classifica Grok 4.3 e Grok 4.20 non-reasoning para as duas vagas. O [2º turno](../README.md) compara o custo de 100 intenções iguais por finalista e aponta economia de 43,38% com Grok 4.3. A nota do 1º turno justifica a classificação; o lote completo sustenta a comparação financeira da dupla. Não se pode extrapolar o desempenho dos demais modelos para 100 intenções nem afirmar qualidade factual equivalente.
 
 ## Evidências e reprodução
 
