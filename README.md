@@ -179,6 +179,8 @@ Consulte o [relatório](evidence/RELATORIO.md) e o [resumo estruturado](evidence
 
 ## Comparativo de 100 intenções cotidianas — executado em 15/10/2026
 
+Veja o [sumário executivo e o consolidado de todos os modelos testados](benchmarks/README.md).
+
 Foi executada a mesma lista de 100 intenções nos dois candidatos de uso geral, Grok 4.3 e Grok 4.20 non-reasoning: 25 de culinária, 25 de esportes, 25 de clima e 25 de entretenimento por modelo. As 200 interações tiveram HTTP 200 e busca confirmada, sem retries ou duplicação de chamadas. Os hashes do payload compartilhado coincidiram nos 100 pares.
 
 - [Lista das 100 intenções](benchmarks/INTENCOES.md).
@@ -194,7 +196,7 @@ Foi executada a mesma lista de 100 intenções nos dois candidatos de uso geral,
 
 **Total: US$ 11.243038, incluindo US$ 4.795 de websearch.** A busca custa US$ 5 por 1000 chamadas, conforme os SKUs Oracle congelados no experimento. Entrada sem cache e saída custam US$ 1,25 e US$ 2,50 por milhão de tokens; cache custa US$ 0,20 por milhão para ambos os modelos.
 
-Neste lote, **Grok 4.3 custou 43.38% menos**, com menor custo em 95 dos 100 pares. O menor custo veio principalmente de menos buscas e menos contexto processado. A mediana de tempo foi 10.59s para Grok 4.3 e 13.55s para 4.20 non-reasoning. Isso não estabelece superioridade factual: o experimento mede consumo, execução da busca e latência observada, não pontua a qualidade das respostas.
+Neste lote, **Grok 4.3 custou 43.38% menos**, com menor custo em 95 dos 100 pares. O menor custo veio principalmente de menos buscas e menos contexto processado. A mediana de tempo foi 10.60s para Grok 4.3 e 13.55s para 4.20 non-reasoning. Isso não estabelece superioridade factual: o experimento mede consumo, execução da busca e latência observada, não pontua a qualidade das respostas.
 
 - [Relatório completo com custos por categoria](benchmarks/results/comparison-2026-10-15/REPORT.md).
 - [CSV das 200 interações, com prompt e composição de custo](benchmarks/results/comparison-2026-10-15/interactions.csv).

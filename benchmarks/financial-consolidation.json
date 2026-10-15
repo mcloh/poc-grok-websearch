@@ -1,0 +1,840 @@
+{
+  "scope": "Todas as 210 chamadas bem-sucedidas com contadores de uso preservados: 3 de validação, 7 de compatibilidade e 200 do benchmark. Erros sem usage ficam fora; não se presume custo zero.",
+  "valuation_date": "2026-10-15",
+  "currency": "USD",
+  "pricing_basis": "Uso medido de 14 e 15/10 reprecificado pela lista Oracle de 15/10/2026, padrão e contexto curto; não é fatura conciliada.",
+  "sources": {
+    "paired_benchmark": "results/comparison-2026-10-15/measured-usage.json",
+    "compatibility_matrix": "../evidence/grok-websearch-models.json",
+    "poc_validation": "Contadores de três chamadas preservados neste JSON; respostas brutas e inventário original permanecem locais."
+  },
+  "pricing": {
+    "list_url": "https://www.oracle.com/cloud/price-list/",
+    "data_url": "https://www.oracle.com/a/ocom/docs/pricing/cloud-price-list.json",
+    "supplement_checked_at": "2026-10-15T14:16:43.202628+00:00",
+    "supplement_data_sha256": "354aa11836c07e2c065700b0efd80253e8c12d9e643e55160fc1ccd9ea7235d9",
+    "rates": {
+      "grok-4.20": {
+        "input_short": {
+          "sku": "B111910",
+          "usd": 1.25
+        },
+        "cached_short": {
+          "sku": "B111911",
+          "usd": 0.2
+        },
+        "output_short": {
+          "sku": "B112076",
+          "usd": 2.5
+        }
+      },
+      "grok-4.3": {
+        "input_short": {
+          "sku": "B112080",
+          "usd": 1.25
+        },
+        "cached_short": {
+          "sku": "B112081",
+          "usd": 0.2
+        },
+        "output_short": {
+          "sku": "B112082",
+          "usd": 2.5
+        }
+      },
+      "grok-4.6": {
+        "input_short": {
+          "sku": "B112086",
+          "usd": 2
+        },
+        "cached_short": {
+          "sku": "B112087",
+          "usd": 0.5
+        },
+        "output_short": {
+          "sku": "B112589",
+          "usd": 6
+        }
+      },
+      "grok-4.7": {
+        "input_short": {
+          "sku": "B113303",
+          "usd": 2
+        },
+        "cached_short": {
+          "sku": "B113304",
+          "usd": 0.5
+        },
+        "output_short": {
+          "sku": "B113305",
+          "usd": 6
+        }
+      }
+    },
+    "web_search": {
+      "sku": "B112610",
+      "usd_per_1000": 5
+    }
+  },
+  "total": {
+    "interactions": 210,
+    "input_tokens": 6949610,
+    "cached_input_tokens": 2527488,
+    "output_tokens": 217197,
+    "reasoning_tokens": 76530,
+    "total_tokens": 7166807,
+    "web_search_calls": 981,
+    "input_usd": "5.54306200",
+    "cached_input_usd": "0.5069184",
+    "output_usd": "0.5502935",
+    "web_search_usd": "4.905",
+    "total_usd": "11.50527390",
+    "mean_usd": "0.05478701857142857142857142857"
+  },
+  "by_stage": {
+    "poc_validation": {
+      "interactions": 3,
+      "input_tokens": 31481,
+      "cached_input_tokens": 12672,
+      "output_tokens": 3348,
+      "reasoning_tokens": 2370,
+      "total_tokens": 34829,
+      "web_search_calls": 9,
+      "input_usd": "0.02351125",
+      "cached_input_usd": "0.0025344",
+      "output_usd": "0.0083700",
+      "web_search_usd": "0.045",
+      "total_usd": "0.07941565",
+      "mean_usd": "0.02647188333333333333333333333"
+    },
+    "compatibility_matrix": {
+      "interactions": 7,
+      "input_tokens": 69948,
+      "cached_input_tokens": 9344,
+      "output_tokens": 6426,
+      "reasoning_tokens": 5158,
+      "total_tokens": 76374,
+      "web_search_calls": 13,
+      "input_usd": "0.0911645",
+      "cached_input_usd": "0.0032896",
+      "output_usd": "0.0233660",
+      "web_search_usd": "0.065",
+      "total_usd": "0.1828201",
+      "mean_usd": "0.02611715714285714285714285714"
+    },
+    "paired_benchmark": {
+      "interactions": 200,
+      "input_tokens": 6848181,
+      "cached_input_tokens": 2505472,
+      "output_tokens": 207423,
+      "reasoning_tokens": 69002,
+      "total_tokens": 7055604,
+      "web_search_calls": 959,
+      "input_usd": "5.42838625",
+      "cached_input_usd": "0.5010944",
+      "output_usd": "0.5185575",
+      "web_search_usd": "4.795",
+      "total_usd": "11.24303815",
+      "mean_usd": "0.05621519075"
+    }
+  },
+  "by_model": {
+    "xai.grok-4.20-0309-non-reasoning": {
+      "interactions": 1,
+      "input_tokens": 10036,
+      "cached_input_tokens": 1024,
+      "output_tokens": 196,
+      "reasoning_tokens": 0,
+      "total_tokens": 10232,
+      "web_search_calls": 2,
+      "input_usd": "0.011265",
+      "cached_input_usd": "0.0002048",
+      "output_usd": "0.00049",
+      "web_search_usd": "0.01",
+      "total_usd": "0.0219598",
+      "mean_usd": "0.0219598"
+    },
+    "xai.grok-4.20-0309-reasoning": {
+      "interactions": 1,
+      "input_tokens": 7712,
+      "cached_input_tokens": 256,
+      "output_tokens": 1491,
+      "reasoning_tokens": 1375,
+      "total_tokens": 9203,
+      "web_search_calls": 1,
+      "input_usd": "0.00932",
+      "cached_input_usd": "0.0000512",
+      "output_usd": "0.0037275",
+      "web_search_usd": "0.005",
+      "total_usd": "0.0180987",
+      "mean_usd": "0.0180987"
+    },
+    "xai.grok-4.20-non-reasoning": {
+      "interactions": 101,
+      "input_tokens": 4826397,
+      "cached_input_tokens": 2198656,
+      "output_tokens": 92994,
+      "reasoning_tokens": 0,
+      "total_tokens": 4919391,
+      "web_search_calls": 649,
+      "input_usd": "3.28467625",
+      "cached_input_usd": "0.4397312",
+      "output_usd": "0.2324850",
+      "web_search_usd": "3.245",
+      "total_usd": "7.20189245",
+      "mean_usd": "0.07130586584158415841584158416"
+    },
+    "xai.grok-4.20-reasoning": {
+      "interactions": 1,
+      "input_tokens": 7882,
+      "cached_input_tokens": 1024,
+      "output_tokens": 1531,
+      "reasoning_tokens": 1329,
+      "total_tokens": 9413,
+      "web_search_calls": 2,
+      "input_usd": "0.0085725",
+      "cached_input_usd": "0.0002048",
+      "output_usd": "0.0038275",
+      "web_search_usd": "0.01",
+      "total_usd": "0.0226048",
+      "mean_usd": "0.0226048"
+    },
+    "xai.grok-4.3": {
+      "interactions": 104,
+      "input_tokens": 2072301,
+      "cached_input_tokens": 321792,
+      "output_tokens": 118899,
+      "reasoning_tokens": 72106,
+      "total_tokens": 2191200,
+      "web_search_calls": 323,
+      "input_usd": "2.18813625",
+      "cached_input_usd": "0.0643584",
+      "output_usd": "0.2972475",
+      "web_search_usd": "1.615",
+      "total_usd": "4.16474215",
+      "mean_usd": "0.04004559759615384615384615385"
+    },
+    "xai.grok-4.6": {
+      "interactions": 1,
+      "input_tokens": 8712,
+      "cached_input_tokens": 1280,
+      "output_tokens": 878,
+      "reasoning_tokens": 732,
+      "total_tokens": 9590,
+      "web_search_calls": 1,
+      "input_usd": "0.014864",
+      "cached_input_usd": "0.00064",
+      "output_usd": "0.005268",
+      "web_search_usd": "0.005",
+      "total_usd": "0.025772",
+      "mean_usd": "0.025772"
+    },
+    "xai.grok-4.7": {
+      "interactions": 1,
+      "input_tokens": 16570,
+      "cached_input_tokens": 3456,
+      "output_tokens": 1208,
+      "reasoning_tokens": 988,
+      "total_tokens": 17778,
+      "web_search_calls": 3,
+      "input_usd": "0.026228",
+      "cached_input_usd": "0.001728",
+      "output_usd": "0.007248",
+      "web_search_usd": "0.015",
+      "total_usd": "0.050204",
+      "mean_usd": "0.050204"
+    }
+  },
+  "compatibility_matrix_by_model": {
+    "xai.grok-4.20-0309-non-reasoning": {
+      "interactions": 1,
+      "input_tokens": 10036,
+      "cached_input_tokens": 1024,
+      "output_tokens": 196,
+      "reasoning_tokens": 0,
+      "total_tokens": 10232,
+      "web_search_calls": 2,
+      "input_usd": "0.011265",
+      "cached_input_usd": "0.0002048",
+      "output_usd": "0.00049",
+      "web_search_usd": "0.01",
+      "total_usd": "0.0219598",
+      "mean_usd": "0.0219598"
+    },
+    "xai.grok-4.20-0309-reasoning": {
+      "interactions": 1,
+      "input_tokens": 7712,
+      "cached_input_tokens": 256,
+      "output_tokens": 1491,
+      "reasoning_tokens": 1375,
+      "total_tokens": 9203,
+      "web_search_calls": 1,
+      "input_usd": "0.00932",
+      "cached_input_usd": "0.0000512",
+      "output_usd": "0.0037275",
+      "web_search_usd": "0.005",
+      "total_usd": "0.0180987",
+      "mean_usd": "0.0180987"
+    },
+    "xai.grok-4.20-non-reasoning": {
+      "interactions": 1,
+      "input_tokens": 10944,
+      "cached_input_tokens": 1024,
+      "output_tokens": 224,
+      "reasoning_tokens": 0,
+      "total_tokens": 11168,
+      "web_search_calls": 2,
+      "input_usd": "0.0124",
+      "cached_input_usd": "0.0002048",
+      "output_usd": "0.00056",
+      "web_search_usd": "0.01",
+      "total_usd": "0.0231648",
+      "mean_usd": "0.0231648"
+    },
+    "xai.grok-4.20-reasoning": {
+      "interactions": 1,
+      "input_tokens": 7882,
+      "cached_input_tokens": 1024,
+      "output_tokens": 1531,
+      "reasoning_tokens": 1329,
+      "total_tokens": 9413,
+      "web_search_calls": 2,
+      "input_usd": "0.0085725",
+      "cached_input_usd": "0.0002048",
+      "output_usd": "0.0038275",
+      "web_search_usd": "0.01",
+      "total_usd": "0.0226048",
+      "mean_usd": "0.0226048"
+    },
+    "xai.grok-4.3": {
+      "interactions": 1,
+      "input_tokens": 8092,
+      "cached_input_tokens": 1280,
+      "output_tokens": 898,
+      "reasoning_tokens": 734,
+      "total_tokens": 8990,
+      "web_search_calls": 2,
+      "input_usd": "0.008515",
+      "cached_input_usd": "0.000256",
+      "output_usd": "0.002245",
+      "web_search_usd": "0.01",
+      "total_usd": "0.021016",
+      "mean_usd": "0.021016"
+    },
+    "xai.grok-4.6": {
+      "interactions": 1,
+      "input_tokens": 8712,
+      "cached_input_tokens": 1280,
+      "output_tokens": 878,
+      "reasoning_tokens": 732,
+      "total_tokens": 9590,
+      "web_search_calls": 1,
+      "input_usd": "0.014864",
+      "cached_input_usd": "0.00064",
+      "output_usd": "0.005268",
+      "web_search_usd": "0.005",
+      "total_usd": "0.025772",
+      "mean_usd": "0.025772"
+    },
+    "xai.grok-4.7": {
+      "interactions": 1,
+      "input_tokens": 16570,
+      "cached_input_tokens": 3456,
+      "output_tokens": 1208,
+      "reasoning_tokens": 988,
+      "total_tokens": 17778,
+      "web_search_calls": 3,
+      "input_usd": "0.026228",
+      "cached_input_usd": "0.001728",
+      "output_usd": "0.007248",
+      "web_search_usd": "0.015",
+      "total_usd": "0.050204",
+      "mean_usd": "0.050204"
+    }
+  },
+  "historical_usage_records": [
+    {
+      "stage": "poc_validation",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.3",
+      "source_file": "route_20231130_actions_v1_responses.json",
+      "usage": {
+        "input_tokens": 7607,
+        "input_tokens_details": {
+          "cached_tokens": 4864
+        },
+        "output_tokens": 1087,
+        "output_tokens_details": {
+          "reasoning_tokens": 843
+        },
+        "total_tokens": 8694,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 3,
+        "cost_in_usd_ticks": 221190500,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 3,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 3680,
+          "output_tokens": 369
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 7607,
+        "cached_input_tokens": 4864,
+        "output_tokens": 1087,
+        "reasoning_tokens": 843,
+        "total_tokens": 8694,
+        "web_search_calls": 3,
+        "input_usd": "0.00342875",
+        "cached_input_usd": "0.0009728",
+        "output_usd": "0.0027175",
+        "web_search_usd": "0.015",
+        "total_usd": "0.02211905"
+      }
+    },
+    {
+      "stage": "poc_validation",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.3",
+      "source_file": "rest-news-today.json",
+      "usage": {
+        "input_tokens": 14359,
+        "input_tokens_details": {
+          "cached_tokens": 5760
+        },
+        "output_tokens": 1185,
+        "output_tokens_details": {
+          "reasoning_tokens": 798
+        },
+        "total_tokens": 15544,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 3,
+        "cost_in_usd_ticks": 298632500,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 3,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 7565,
+          "output_tokens": 466
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 14359,
+        "cached_input_tokens": 5760,
+        "output_tokens": 1185,
+        "reasoning_tokens": 798,
+        "total_tokens": 15544,
+        "web_search_calls": 3,
+        "input_usd": "0.01074875",
+        "cached_input_usd": "0.001152",
+        "output_usd": "0.0029625",
+        "web_search_usd": "0.015",
+        "total_usd": "0.02986325"
+      }
+    },
+    {
+      "stage": "poc_validation",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.3",
+      "source_file": "route_v1_responses.json",
+      "usage": {
+        "input_tokens": 9515,
+        "input_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "output_tokens": 1076,
+        "output_tokens_details": {
+          "reasoning_tokens": 729
+        },
+        "total_tokens": 10591,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 3,
+        "cost_in_usd_ticks": 274333500,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 3,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 8450,
+          "output_tokens": 571
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 9515,
+        "cached_input_tokens": 2048,
+        "output_tokens": 1076,
+        "reasoning_tokens": 729,
+        "total_tokens": 10591,
+        "web_search_calls": 3,
+        "input_usd": "0.00933375",
+        "cached_input_usd": "0.0004096",
+        "output_usd": "0.00269",
+        "web_search_usd": "0.015",
+        "total_usd": "0.02743335"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.20-0309-non-reasoning",
+      "usage": {
+        "input_tokens": 10036,
+        "input_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "output_tokens": 196,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10232,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 219598000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 9058,
+          "output_tokens": 138
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 10036,
+        "cached_input_tokens": 1024,
+        "output_tokens": 196,
+        "reasoning_tokens": 0,
+        "total_tokens": 10232,
+        "web_search_calls": 2,
+        "input_usd": "0.011265",
+        "cached_input_usd": "0.0002048",
+        "output_usd": "0.00049",
+        "web_search_usd": "0.01",
+        "total_usd": "0.0219598"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.20-0309-reasoning",
+      "usage": {
+        "input_tokens": 7712,
+        "input_tokens_details": {
+          "cached_tokens": 256
+        },
+        "output_tokens": 1491,
+        "output_tokens_details": {
+          "reasoning_tokens": 1375
+        },
+        "total_tokens": 9203,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 1,
+        "cost_in_usd_ticks": 180987000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 1,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 6732,
+          "output_tokens": 864
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 7712,
+        "cached_input_tokens": 256,
+        "output_tokens": 1491,
+        "reasoning_tokens": 1375,
+        "total_tokens": 9203,
+        "web_search_calls": 1,
+        "input_usd": "0.00932",
+        "cached_input_usd": "0.0000512",
+        "output_usd": "0.0037275",
+        "web_search_usd": "0.005",
+        "total_usd": "0.0180987"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.20-non-reasoning",
+      "usage": {
+        "input_tokens": 10944,
+        "input_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "output_tokens": 224,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11168,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 231648000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 9966,
+          "output_tokens": 153
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 10944,
+        "cached_input_tokens": 1024,
+        "output_tokens": 224,
+        "reasoning_tokens": 0,
+        "total_tokens": 11168,
+        "web_search_calls": 2,
+        "input_usd": "0.0124",
+        "cached_input_usd": "0.0002048",
+        "output_usd": "0.00056",
+        "web_search_usd": "0.01",
+        "total_usd": "0.0231648"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.20-reasoning",
+      "usage": {
+        "input_tokens": 7882,
+        "input_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "output_tokens": 1531,
+        "output_tokens_details": {
+          "reasoning_tokens": 1329
+        },
+        "total_tokens": 9413,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 226048000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 6902,
+          "output_tokens": 732
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 7882,
+        "cached_input_tokens": 1024,
+        "output_tokens": 1531,
+        "reasoning_tokens": 1329,
+        "total_tokens": 9413,
+        "web_search_calls": 2,
+        "input_usd": "0.0085725",
+        "cached_input_usd": "0.0002048",
+        "output_usd": "0.0038275",
+        "web_search_usd": "0.01",
+        "total_usd": "0.0226048"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.3",
+      "usage": {
+        "input_tokens": 8092,
+        "input_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "output_tokens": 898,
+        "output_tokens_details": {
+          "reasoning_tokens": 734
+        },
+        "total_tokens": 8990,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 2,
+        "cost_in_usd_ticks": 210160000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 2,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 6926,
+          "output_tokens": 456
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 8092,
+        "cached_input_tokens": 1280,
+        "output_tokens": 898,
+        "reasoning_tokens": 734,
+        "total_tokens": 8990,
+        "web_search_calls": 2,
+        "input_usd": "0.008515",
+        "cached_input_usd": "0.000256",
+        "output_usd": "0.002245",
+        "web_search_usd": "0.01",
+        "total_usd": "0.021016"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.6",
+      "usage": {
+        "input_tokens": 8712,
+        "input_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "output_tokens": 878,
+        "output_tokens_details": {
+          "reasoning_tokens": 732
+        },
+        "total_tokens": 9590,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 1,
+        "cost_in_usd_ticks": 257720000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 1,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 7510,
+          "output_tokens": 535
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 8712,
+        "cached_input_tokens": 1280,
+        "output_tokens": 878,
+        "reasoning_tokens": 732,
+        "total_tokens": 9590,
+        "web_search_calls": 1,
+        "input_usd": "0.014864",
+        "cached_input_usd": "0.00064",
+        "output_usd": "0.005268",
+        "web_search_usd": "0.005",
+        "total_usd": "0.025772"
+      }
+    },
+    {
+      "stage": "compatibility_matrix",
+      "date": "2026-10-14",
+      "model": "xai.grok-4.7",
+      "usage": {
+        "input_tokens": 16570,
+        "input_tokens_details": {
+          "cached_tokens": 3456
+        },
+        "output_tokens": 1208,
+        "output_tokens_details": {
+          "reasoning_tokens": 988
+        },
+        "total_tokens": 17778,
+        "num_sources_used": 0,
+        "num_server_side_tools_used": 3,
+        "cost_in_usd_ticks": 502040000,
+        "server_side_tool_usage_details": {
+          "web_search_calls": 3,
+          "x_search_calls": 0,
+          "x_posts_fetched": 0,
+          "x_users_fetched": 0,
+          "code_interpreter_calls": 0,
+          "file_search_calls": 0,
+          "mcp_calls": 0,
+          "document_search_calls": 0,
+          "image_generation_calls": 0
+        },
+        "context_details": {
+          "input_tokens": 14183,
+          "output_tokens": 1022
+        }
+      },
+      "metrics": {
+        "interactions": 1,
+        "input_tokens": 16570,
+        "cached_input_tokens": 3456,
+        "output_tokens": 1208,
+        "reasoning_tokens": 988,
+        "total_tokens": 17778,
+        "web_search_calls": 3,
+        "input_usd": "0.026228",
+        "cached_input_usd": "0.001728",
+        "output_usd": "0.007248",
+        "web_search_usd": "0.015",
+        "total_usd": "0.050204"
+      }
+    }
+  ]
+}
